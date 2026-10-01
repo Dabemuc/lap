@@ -4702,12 +4702,12 @@ impl AFile {
         }
 
         if !params.lens_make.is_empty() {
-            conditions.push("UPPER(a.e_lens_make) = UPPER(?)".to_string());
+            conditions.push("UPPER(COALESCE(a.e_lens_make, 'UNKNOWN')) = UPPER(?)".to_string());
             sql_params.push(Box::new(params.lens_make.clone()));
-            if !params.lens_model.is_empty() {
-                conditions.push("a.e_lens_model = ?".to_string());
-                sql_params.push(Box::new(params.lens_model.clone()));
-            }
+        }
+        if !params.lens_model.is_empty() {
+            conditions.push("a.e_lens_model = ?".to_string());
+            sql_params.push(Box::new(params.lens_model.clone()));
         }
 
         if !params.location_admin1.is_empty() {
@@ -5785,7 +5785,7 @@ impl AFile {
                     }
                     "lens" => {
                         if let Some(make) = parts.get(0).filter(|v| !v.is_empty()) {
-                            conditions.push("UPPER(a.e_lens_make) = UPPER(?)".to_string());
+                            conditions.push("UPPER(COALESCE(a.e_lens_make, 'UNKNOWN')) = UPPER(?)".to_string());
                             sql_params.push(Box::new((*make).to_string()));
                         }
                         if let Some(model) = parts.get(1).filter(|v| !v.is_empty()) {
@@ -9250,15 +9250,15 @@ impl ALens {
     // get all lens makes and models from db
     pub fn get_from_db(sort: i64) -> Result<Vec<Self>, String> {
         let conn = open_conn()?;
-        let query = format!("SELECT UPPER(a.e_lens_make), a.e_lens_model, count(a.id) as count
+        let query = format!("SELECT UPPER(COALESCE(a.e_lens_make, 'UNKNOWN')), a.e_lens_model, count(a.id) as count
             FROM afiles a
             JOIN afolders b ON a.folder_id = b.id
-            WHERE a.e_lens_make IS NOT NULL AND a.e_lens_model IS NOT NULL
+            WHERE a.e_lens_model IS NOT NULL
                 AND a.id NOT IN (
                     SELECT live_photo_video_id FROM afiles WHERE live_photo_video_id IS NOT NULL
                 ){}{} AND {}
-            GROUP BY UPPER(a.e_lens_make), a.e_lens_model
-            ORDER BY UPPER(a.e_lens_make), a.e_lens_model", AFile::inaccessible_album_filter("b"), AFile::album_filter_sql("a"), AFile::search_exclusion_condition("b"));
+            GROUP BY UPPER(COALESCE(a.e_lens_make, 'UNKNOWN')), a.e_lens_model
+            ORDER BY UPPER(COALESCE(a.e_lens_make, 'UNKNOWN')), a.e_lens_model", AFile::inaccessible_album_filter("b"), AFile::album_filter_sql("a"), AFile::search_exclusion_condition("b"));
 
         let mut stmt = conn.prepare(query.as_str()).map_err(|e| e.to_string())?;
 
