@@ -93,16 +93,26 @@
             </div>
           </div>
 
-          <!-- updates -->
+          <!-- album folder -->
           <div class="rounded-box p-2 space-y-2 bg-base-300/30 border border-base-content/5 shadow-sm">
             <div class="flex items-center gap-2 text-base-content/30">
-              <span class="font-bold uppercase text-[10px] tracking-widest">{{ $t('settings.general.section_updates') }}</span>
+              <span class="font-bold uppercase text-[10px] tracking-widest">{{ $t('settings.browse.section_album') }}</span>
             </div>
-            <div class="flex items-center justify-between p-1 rounded-box hover:bg-base-100/10 transition-colors duration-200">
+            <div class="flex items-center justify-between px-1 rounded-box hover:bg-base-100/10 transition-colors duration-200">
               <div class="flex flex-col gap-0.5 text-sm leading-5">
-                <div>{{ $t('settings.general.auto_check_updates') }}</div>
+                <div>{{ $t('settings.browse.show_subfolder_files') }}</div>
+                <div class="text-xs text-base-content/30">{{ $t('settings.browse.show_subfolder_files_hint') }}</div>
               </div>
-              <input type="checkbox" class="toggle toggle-primary toggle-sm" v-model="config.settings.autoCheckUpdates" />
+              <input type="checkbox" class="toggle toggle-primary toggle-sm" v-model="config.settings.showSubfolderFiles" />
+            </div>
+            <div class="flex items-center justify-between px-1 rounded-box hover:bg-base-100/10 transition-colors duration-200">
+              <div class="flex flex-col gap-0.5 text-sm leading-5">
+                <div>{{ $t('settings.browse.folder_sort') }}</div>
+                <div class="text-xs text-base-content/30">{{ $t('settings.browse.folder_sort_hint') }}</div>
+              </div>
+              <select class="select select-bordered select-sm min-w-40" v-model="config.settings.folderSort">
+                <option v-for="option in folderSortOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
+              </select>
             </div>
           </div>
 
@@ -433,59 +443,6 @@
           </div>
         </div>
 
-        <!-- Browse Tab -->
-        <div v-else-if="config.settings.tabIndex === SETTINGS_TAB.BROWSE" class="flex flex-col space-y-2">
-
-          <!-- album -->
-          <div class="rounded-box p-2 space-y-2 bg-base-300/30 border border-base-content/5 shadow-sm">
-            <div class="flex items-center gap-2 text-base-content/30">
-              <span class="font-bold uppercase text-[10px] tracking-widest">{{ $t('settings.browse.section_album') }}</span>
-            </div>
-            <div class="flex items-center justify-between px-1 rounded-box hover:bg-base-100/10 transition-colors duration-200">
-              <div class="flex flex-col gap-0.5 text-sm leading-5">
-                <div>{{ $t('settings.browse.show_subfolder_files') }}</div>
-                <div class="text-xs text-base-content/30">{{ $t('settings.browse.show_subfolder_files_hint') }}</div>
-              </div>
-              <input type="checkbox" class="toggle toggle-primary toggle-sm" v-model="config.settings.showSubfolderFiles" />
-            </div>
-          </div>
-
-          <!-- sorting -->
-          <div class="rounded-box p-2 space-y-2 bg-base-300/30 border border-base-content/5 shadow-sm">
-            <div class="flex items-center gap-2 text-base-content/30">
-              <span class="font-bold uppercase text-[10px] tracking-widest">{{ $t('settings.browse.section_sorting') }}</span>
-            </div>
-            <div class="flex items-center justify-between px-1 rounded-box hover:bg-base-100/10 transition-colors duration-200">
-              <div class="flex flex-col gap-0.5 text-sm leading-5">
-                <div>{{ $t('settings.browse.folder_sort') }}</div>
-                <div class="text-xs text-base-content/30">{{ $t('settings.browse.folder_sort_hint') }}</div>
-              </div>
-              <select class="select select-bordered select-sm min-w-40" v-model="config.settings.folderSort">
-                <option v-for="option in folderSortOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
-              </select>
-            </div>
-            <div class="flex items-center justify-between px-1 rounded-box hover:bg-base-100/10 transition-colors duration-200">
-              <div class="flex flex-col gap-0.5 text-sm leading-5">
-                <div>{{ $t('settings.browse.calendar_sort') }}</div>
-                <div class="text-xs text-base-content/30">{{ $t('settings.browse.calendar_sort_hint') }}</div>
-              </div>
-              <select class="select select-bordered select-sm min-w-40" v-model="config.settings.calendarSort">
-                <option v-for="option in calendarSortOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
-              </select>
-            </div>
-            <div class="flex items-center justify-between px-1 rounded-box hover:bg-base-100/10 transition-colors duration-200">
-              <div class="flex flex-col gap-0.5 text-sm leading-5">
-                <div>{{ $t('settings.browse.category_sort') }}</div>
-                <div class="text-xs text-base-content/30">{{ $t('settings.browse.category_sort_hint') }}</div>
-              </div>
-              <select class="select select-bordered select-sm min-w-40" v-model="config.settings.categorySort">
-                <option v-for="option in categorySortOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
-              </select>
-            </div>
-          </div>
-
-        </div>
-
         <!-- Advanced Tab -->
         <div v-else-if="config.settings.tabIndex === SETTINGS_TAB.ADVANCED" class="flex flex-col space-y-2">
 
@@ -736,7 +693,6 @@ const toast = useToast();
 const shortcutPlatform: ShortcutPlatform = isMac ? 'mac' : (isLinux ? 'linux' : 'windows');
 const settingsTabs = [
   { id: SETTINGS_TAB.GENERAL, label: 'settings.general.title' },
-  { id: SETTINGS_TAB.BROWSE, label: 'settings.browse.title' },
   { id: SETTINGS_TAB.GRID, label: 'settings.grid.title' },
   { id: SETTINGS_TAB.IMAGE_VIEW, label: 'settings.image_view.title' },
   { id: SETTINGS_TAB.RAW, label: 'settings.raw.title' },
@@ -835,28 +791,6 @@ const scaleOptions = computed(() => {
 
 const folderSortOptions = computed(() => {
   const options = localeMsg.value.settings.browse.folder_sort_options || [];
-  const result = [];
-
-  for (let i = 0; i < options.length; i++) {
-    result.push({ label: options[i], value: i });
-  }
-
-  return result;
-});
-
-const calendarSortOptions = computed(() => {
-  const options = localeMsg.value.settings.browse.calendar_sort_options || [];
-  const result = [];
-
-  for (let i = 0; i < options.length; i++) {
-    result.push({ label: options[i], value: i });
-  }
-
-  return result;
-});
-
-const categorySortOptions = computed(() => {
-  const options = localeMsg.value.settings.browse.category_sort_options || [];
   const result = [];
 
   for (let i = 0; i < options.length; i++) {
@@ -1480,12 +1414,6 @@ watch(() => config.settings.debugMode, (newValue) => {
 });
 watch(() => config.settings.folderSort, (newValue) => {
   emit('settings-folderSort-changed', newValue);
-});
-watch(() => config.settings.calendarSort, (newValue) => {
-  emit('settings-calendarSort-changed', newValue);
-});
-watch(() => config.settings.categorySort, (newValue) => {
-  emit('settings-categorySort-changed', newValue);
 });
 watch(() => config.settings.showSubfolderFiles, (newValue) => {
   emit('settings-showSubfolderFiles-changed', newValue);

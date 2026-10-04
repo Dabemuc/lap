@@ -1598,6 +1598,19 @@ function formatGroupLabel(label: string) {
   return label || '';
 }
 
+// Resolve which per-view category sort applies to a given content grouping.
+// Only location/camera/lens grouping uses category_sort on the backend; the
+// lens list shares the Camera view's sort. Tag/person sorts drive their own
+// sidebars and never reach the content query.
+function categorySortForGroup(groupBy: number) {
+  switch (Number(groupBy)) {
+    case GROUP.LOCATION: return Number(config.settings.locationSort || 0);
+    case GROUP.CAMERA:
+    case GROUP.LENS: return Number(config.settings.cameraSort || 0);
+    default: return 0;
+  }
+}
+
 function getGroupingQueryParams() {
   const baseParams = currentQuerySource.value === 'smart' && currentSmartQueryParams.value
     ? currentSmartQueryParams.value
@@ -1610,7 +1623,7 @@ function getGroupingQueryParams() {
     groupBy: effectiveGroupBy.value,
     folderSort: Number(config.settings.folderSort || 0),
     calendarSort,
-    categorySort: Number(config.settings.categorySort || 0),
+    categorySort: categorySortForGroup(effectiveGroupBy.value),
   };
 }
 
@@ -5853,7 +5866,7 @@ watch(
     libConfig.culling.item, // culling
     config.search.fileType, config.search.sortType, config.search.sortOrder, // search and sort 
     config.settings.showSubfolderFiles,                                            // album folder view
-    config.settings.folderSort, config.settings.calendarSort, config.settings.categorySort, config.search.groupBy, // group sorting and filtering
+    config.settings.folderSort, config.settings.calendarSort, config.settings.locationSort, config.settings.cameraSort, config.search.groupBy, // group sorting and filtering (tag/person sorts only affect their sidebars, not content grouping)
     libConfig.person.id,                                                              // person
     config.calendar.view, libConfig.calendar.year, libConfig.calendar.month, libConfig.calendar.date, // calendar
     libConfig.tag.id, libConfig.tag.groupId, libConfig.tag.activateTick, // tag
@@ -6740,7 +6753,7 @@ async function getFileList(
     endDate = 0,
     calendarSort = config.settings.calendarSort,
     folderSort = config.settings.folderSort,
-    categorySort = config.settings.categorySort,
+    categorySort = categorySortForGroup(effectiveGroupBy.value),
     make = '',
     model = '', 
     lensMake = '',
@@ -6936,7 +6949,7 @@ async function getCollectionFileList(collectionId: number, requestId: number) {
     endDate: 0,
     calendarSort: config.settings.calendarSort,
     folderSort: config.settings.folderSort,
-    categorySort: config.settings.categorySort,
+    categorySort: categorySortForGroup(effectiveGroupBy.value),
     make: '',
     model: '',
     lensMake: '',
@@ -7020,7 +7033,7 @@ async function getSmartFileList(smartAlbum: any, requestId: number) {
     randomSeed: createRandomSeed(),
     folderSort: Number(config.settings.folderSort || 0),
     calendarSort: Number(config.settings.calendarSort || 0),
-    categorySort: Number(config.settings.categorySort || 0),
+    categorySort: categorySortForGroup(effectiveGroupBy.value),
     groupBy: effectiveGroupBy.value,
   };
   void refreshDedupSmartFileIds(requestId, currentSmartQueryParams.value);
@@ -7196,7 +7209,7 @@ async function getUnifiedSearchFileList(searchText: string, requestId: number) {
     endDate: 0,
     calendarSort: config.settings.calendarSort,
     folderSort: config.settings.folderSort,
-    categorySort: config.settings.categorySort,
+    categorySort: categorySortForGroup(effectiveGroupBy.value),
     make: '',
     model: '',
     lensMake: '',

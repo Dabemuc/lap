@@ -599,7 +599,8 @@
       "recognized_person": "인식된 인물을 찾을 수 없습니다",
       "person_hint": "앨범에서 얼굴을 인덱싱하면 여기에서 인물을 볼 수 있습니다",
       "camera": "카메라를 찾을 수 없습니다",
-      "camera_hint": "카메라 메타데이터가 있는 사진을 추가하면 여기에 표시됩니다"
+      "camera_hint": "카메라 메타데이터가 있는 사진을 추가하면 여기에 표시됩니다",
+      "lens": "렌즈를 찾을 수 없습니다"
     },
     "set_album_cover": {
       "success": "앨범 커버 설정 완료",
@@ -713,9 +714,14 @@
       "time_asc": "오래된 순",
       "time_desc": "최신 순"
     },
+    "location": {
+      "search": "위치 검색"
+    },
     "camera_panel": {
       "camera_title": "카메라",
-      "lens_title": "렌즈"
+      "lens_title": "렌즈",
+      "camera_search": "카메라 검색",
+      "lens_search": "렌즈 검색"
     },
     "search": {
       "clear_history": "검색 기록 지우기"
@@ -1093,7 +1099,7 @@
       "border": "테두리",
       "save_failed": "몽타주를 저장하지 못했습니다:",
       "not_enough_photos": "몽타주를 만들려면 사진을 2장 이상 선택하세요.",
-      "too_many_photos": "몽타주에는 처음 {count}장의 사진만 사용됩니다.",
+      "too_many_photos": "몽타주에는 처음 {count}장의 사진만 사용됩니다.",
       "save_title": "몽타주 저장",
       "folder": "폴더",
       "file_name": "파일 이름",
@@ -1238,7 +1244,6 @@
       "section_language": "언어",
       "section_appearance": "외관",
       "section_interface": "표시",
-      "section_updates": "업데이트",
       "appearance": "색상 모드",
       "appearance_options": [
         "라이트",
@@ -1307,25 +1312,23 @@
       "rawRenderBrightness": "렌더링 밝기",
       "option_embedded": "내장 미리보기 우선",
       "option_rendered": "항상 RAW 렌더링",
+      "option_original": "원본 노출",
+      "option_brightened": "밝게",
       "brightness_hint": "내장 미리보기를 사용할 수 없는 경우를 포함해 RAW 렌더링 시 적용됩니다.",
       "switch_to": "{source}(으)로 전환",
       "show_pair": "페어링된 {format} 표시",
       "source_embedded": "내장",
       "source_rendered": "렌더링",
       "source_brightened": "밝게",
-      "option_original": "원본 노출",
-      "option_brightened": "밝게",
       "preview_mode": "RAW 미리보기 모드"
     },
     "browse": {
-      "title": "탐색",
-      "section_album": "앨범",
+      "section_album": "앨범 폴더",
       "show_subfolder_files": "하위 폴더의 파일 표시",
       "show_subfolder_files_hint": "폴더 보기에서 하위 폴더의 파일을 포함합니다",
       "group_raw_jpeg_pairs": "RAW 쌍을 하나로 표시",
       "group_raw_jpeg_pairs_hint": "일치하는 RAW 및 JPEG/HEIC 파일을 하나의 항목으로 표시합니다",
-      "section_sorting": "정렬",
-      "folder_sort": "폴더",
+      "folder_sort": "폴더 정렬",
       "folder_sort_hint": "앨범 아래에 표시되는 폴더의 정렬 순서입니다",
       "folder_sort_options": [
         "이름 (A-Z)",
@@ -1333,23 +1336,14 @@
         "날짜 (오래된 순)",
         "날짜 (최신 순)"
       ],
-      "calendar_sort": "달력",
-      "calendar_sort_hint": "촬영일 또는 수정일 기준",
       "calendar_sort_options": [
-        "촬영일 (오름차순)",
-        "촬영일 (내림차순)",
-        "생성일 (오름차순)",
-        "생성일 (내림차순)",
-        "수정일 (오름차순)",
-        "수정일 (내림차순)"
+        "촬영일",
+        "생성일",
+        "수정일"
       ],
-      "category_sort": "카테고리",
-      "category_sort_hint": "태그, 위치, 인물 및 카메라",
       "category_sort_options": [
-        "이름 (A-Z)",
-        "이름 (Z-A)",
-        "개수 (낮은 순)",
-        "개수 (높은 순)"
+        "이름",
+        "개수"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "피드백",
         "privacy": "개인정보"
       },
+      "section_updates": "업데이트",
       "auto_update": {
         "update": "업데이트",
         "check": "업데이트 확인",

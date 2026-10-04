@@ -599,7 +599,8 @@
       "recognized_person": "Nessuna persona riconosciuta trovata",
       "person_hint": "Indicizza i volti negli Album per vedere le persone qui",
       "camera": "Nessuna fotocamera trovata",
-      "camera_hint": "Aggiungi foto con metadati della fotocamera per vederle qui"
+      "camera_hint": "Aggiungi foto con metadati della fotocamera per vederle qui",
+      "lens": "Nessun obiettivo trovato"
     },
     "set_album_cover": {
       "success": "Copertina dell'album impostata correttamente",
@@ -713,9 +714,14 @@
       "time_asc": "Data crescente",
       "time_desc": "Data decrescente"
     },
+    "location": {
+      "search": "Cerca luoghi"
+    },
     "camera_panel": {
       "camera_title": "Fotocamere",
-      "lens_title": "Obiettivi"
+      "lens_title": "Obiettivi",
+      "camera_search": "Cerca fotocamere",
+      "lens_search": "Cerca obiettivi"
     },
     "search": {
       "clear_history": "Cancella cronologia ricerche"
@@ -1238,7 +1244,6 @@
       "section_language": "Lingua",
       "section_appearance": "Aspetto",
       "section_interface": "Interfaccia",
-      "section_updates": "Aggiornamenti",
       "appearance": "Modalità colore",
       "appearance_options": [
         "Chiaro",
@@ -1318,14 +1323,12 @@
       "preview_mode": "Modalità anteprima RAW"
     },
     "browse": {
-      "title": "Sfoglia",
-      "section_album": "Album",
+      "section_album": "Cartella album",
       "show_subfolder_files": "Mostra file dalle sottocartelle",
       "show_subfolder_files_hint": "La vista cartella include i file delle cartelle figlie",
       "group_raw_jpeg_pairs": "Raggruppa coppie RAW",
       "group_raw_jpeg_pairs_hint": "Mostra i file RAW e JPEG/HEIC corrispondenti come un unico elemento",
-      "section_sorting": "Ordinamento",
-      "folder_sort": "Cartelle",
+      "folder_sort": "Ordinamento cartelle",
       "folder_sort_hint": "Ordinamento delle cartelle mostrate sotto gli album",
       "folder_sort_options": [
         "Nome (da A a Z)",
@@ -1333,23 +1336,14 @@
         "Data (più vecchie prima)",
         "Data (più recenti prima)"
       ],
-      "calendar_sort": "Calendario",
-      "calendar_sort_hint": "In base alla data di scatto o di modifica",
       "calendar_sort_options": [
-        "Data di scatto (crescente)",
-        "Data di scatto (decrescente)",
-        "Data di creazione (crescente)",
-        "Data di creazione (decrescente)",
-        "Data di modifica (crescente)",
-        "Data di modifica (decrescente)"
+        "Data di scatto",
+        "Data di creazione",
+        "Data di modifica"
       ],
-      "category_sort": "Categorie",
-      "category_sort_hint": "Tag, luoghi, persone e fotocamere",
       "category_sort_options": [
-        "Nome (da A a Z)",
-        "Nome (da Z ad A)",
-        "Conteggio (dal più basso)",
-        "Conteggio (dal più alto)"
+        "Nome",
+        "Numero"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Feedback",
         "privacy": "Privacy"
       },
+      "section_updates": "Aggiornamenti",
       "auto_update": {
         "update": "Aggiorna",
         "check": "Controlla aggiornamenti",

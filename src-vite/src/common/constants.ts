@@ -87,7 +87,7 @@ export const MAP_MARKER_SIZES: readonly number[] = [48, 64, 88, 120];
 // only requires editing this map and the settingsTabs list in Settings.vue.
 export const SETTINGS_TAB = {
   GENERAL: 0,
-  BROWSE: 1,
+  BROWSE: 1, // deprecated: merged into General; value kept reserved so a persisted tabIndex=1 falls back safely (do not reuse)
   GRID: 2,
   IMAGE_VIEW: 3,
   RAW: 4,

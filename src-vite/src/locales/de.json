@@ -599,7 +599,8 @@
       "recognized_person": "Keine erkannte Person gefunden",
       "person_hint": "Indizieren Sie Gesichter in Alben, damit sie hier angezeigt werden",
       "camera": "Keine Kameras gefunden",
-      "camera_hint": "Fügen Sie Fotos mit Kameradaten hinzu, damit sie hier angezeigt werden"
+      "camera_hint": "Fügen Sie Fotos mit Kameradaten hinzu, damit sie hier angezeigt werden",
+      "lens": "Keine Objektive gefunden"
     },
     "set_album_cover": {
       "success": "Cover gesetzt",
@@ -713,9 +714,14 @@
       "time_asc": "Zeit Auf",
       "time_desc": "Zeit Ab"
     },
+    "location": {
+      "search": "Orte durchsuchen"
+    },
     "camera_panel": {
       "camera_title": "Kameras",
-      "lens_title": "Objektive"
+      "lens_title": "Objektive",
+      "camera_search": "Kameras durchsuchen",
+      "lens_search": "Objektive durchsuchen"
     },
     "search": {
       "clear_history": "Suchverlauf löschen"
@@ -1093,7 +1099,7 @@
       "border": "Rahmen",
       "save_failed": "Montage konnte nicht gespeichert werden:",
       "not_enough_photos": "Wählen Sie mindestens 2 Fotos aus, um eine Montage zu erstellen.",
-      "too_many_photos": "Nur die ersten {count} Fotos werden für die Montage verwendet.",
+      "too_many_photos": "Nur die ersten {count} Fotos werden für die Montage verwendet.",
       "save_title": "Montage speichern",
       "folder": "Ordner",
       "file_name": "Dateiname",
@@ -1238,7 +1244,6 @@
       "section_language": "Sprache",
       "section_appearance": "Erscheinungsbild",
       "section_interface": "Anzeige",
-      "section_updates": "Updates",
       "appearance": "Erscheinungsbild",
       "appearance_options": [
         "Hell",
@@ -1307,25 +1312,23 @@
       "rawRenderBrightness": "Helligkeit beim Rendern",
       "option_embedded": "Eingebettete Vorschau bevorzugen",
       "option_rendered": "RAW immer rendern",
+      "option_original": "Originale Belichtung",
+      "option_brightened": "Aufgehellt",
       "brightness_hint": "Gilt beim Rendern von RAW, auch wenn keine eingebettete Vorschau verfügbar ist.",
       "switch_to": "Zu {source} wechseln",
       "show_pair": "Zugehöriges {format} anzeigen",
       "source_embedded": "Eingebettet",
       "source_rendered": "Gerendert",
       "source_brightened": "Aufgehellt",
-      "option_original": "Originale Belichtung",
-      "option_brightened": "Aufgehellt",
       "preview_mode": "RAW-Vorschaumodus"
     },
     "browse": {
-      "title": "Durchsuchen",
-      "section_album": "Album",
+      "section_album": "Albumordner",
       "show_subfolder_files": "Dateien aus Unterordnern anzeigen",
       "show_subfolder_files_hint": "Die Ordneransicht enthält Dateien in Unterordnern",
       "group_raw_jpeg_pairs": "RAW-Paare gruppieren",
       "group_raw_jpeg_pairs_hint": "Passende RAW- und JPEG/HEIC-Dateien als ein Element anzeigen",
-      "section_sorting": "Sortierung",
-      "folder_sort": "Ordner",
+      "folder_sort": "Ordnersortierung",
       "folder_sort_hint": "Sortierreihenfolge für unter Alben angezeigte Ordner",
       "folder_sort_options": [
         "Name (A bis Z)",
@@ -1333,23 +1336,14 @@
         "Datum (Älteste zuerst)",
         "Datum (Neueste zuerst)"
       ],
-      "calendar_sort": "Kalender",
-      "calendar_sort_hint": "Basierend auf dem Aufnahmedatum oder dem Änderungsdatum",
       "calendar_sort_options": [
-        "Aufnahmedatum (Aufst.)",
-        "Aufnahmedatum (Abst.)",
-        "Erstelldatum (Aufst.)",
-        "Erstelldatum (Abst.)",
-        "Änderungsdatum (Aufst.)",
-        "Änderungsdatum (Abst.)"
+        "Aufnahmedatum",
+        "Erstellungsdatum",
+        "Änderungsdatum"
       ],
-      "category_sort": "Kategorien",
-      "category_sort_hint": "Tags, Orte, Personen und Kameras",
       "category_sort_options": [
-        "Name (A bis Z)",
-        "Name (Z bis A)",
-        "Anzahl (Aufsteigend)",
-        "Anzahl (Absteigend)"
+        "Name",
+        "Anzahl"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Feedback",
         "privacy": "Datenschutz"
       },
+      "section_updates": "Aktualisierungen",
       "auto_update": {
         "update": "Aktualisieren",
         "check": "Nach Updates suchen",

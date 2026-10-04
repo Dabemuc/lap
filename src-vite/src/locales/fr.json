@@ -599,7 +599,8 @@
       "recognized_person": "Aucune personne reconnue trouvée",
       "person_hint": "Indexez les visages dans Albums pour voir les personnes ici",
       "camera": "Aucun appareil trouvé",
-      "camera_hint": "Ajoutez des photos avec des métadonnées d'appareil pour les voir ici"
+      "camera_hint": "Ajoutez des photos avec des métadonnées d'appareil pour les voir ici",
+      "lens": "Aucun objectif trouvé"
     },
     "set_album_cover": {
       "success": "Couverture définie",
@@ -713,9 +714,14 @@
       "time_asc": "Temps crois",
       "time_desc": "Temps décrois"
     },
+    "location": {
+      "search": "Rechercher des lieux"
+    },
     "camera_panel": {
       "camera_title": "Appareils",
-      "lens_title": "Objectifs"
+      "lens_title": "Objectifs",
+      "camera_search": "Rechercher des appareils photo",
+      "lens_search": "Rechercher des objectifs"
     },
     "search": {
       "clear_history": "Effacer historique"
@@ -1093,7 +1099,7 @@
       "border": "Bordure",
       "save_failed": "Échec de l'enregistrement du montage :",
       "not_enough_photos": "Sélectionnez au moins 2 photos pour créer un montage.",
-      "too_many_photos": "Seules les {count} premières photos sont utilisées dans le montage.",
+      "too_many_photos": "Seules les {count} premières photos sont utilisées dans le montage.",
       "save_title": "Enregistrer le montage",
       "folder": "Dossier",
       "file_name": "Nom du fichier",
@@ -1238,7 +1244,6 @@
       "section_language": "Langue",
       "section_appearance": "Apparence",
       "section_interface": "Affichage",
-      "section_updates": "Mises à jour",
       "appearance": "Apparence",
       "appearance_options": [
         "Clair",
@@ -1307,25 +1312,23 @@
       "rawRenderBrightness": "Luminosité du rendu",
       "option_embedded": "Privilégier l’aperçu intégré",
       "option_rendered": "Toujours rendre le RAW",
+      "option_original": "Exposition d’origine",
+      "option_brightened": "Éclaircie",
       "brightness_hint": "S’applique au rendu RAW, y compris lorsque l’aperçu intégré est indisponible.",
       "switch_to": "Passer à {source}",
       "show_pair": "Afficher le {format} associé",
       "source_embedded": "Intégré",
       "source_rendered": "Rendu",
       "source_brightened": "Éclaircie",
-      "option_original": "Exposition d’origine",
-      "option_brightened": "Éclaircie",
       "preview_mode": "Mode d'aperçu RAW"
     },
     "browse": {
-      "title": "Parcourir",
-      "section_album": "Album",
+      "section_album": "Dossier d'album",
       "show_subfolder_files": "Afficher les fichiers des sous-dossiers",
       "show_subfolder_files_hint": "La vue dossier inclut les fichiers des sous-dossiers",
       "group_raw_jpeg_pairs": "Regrouper les paires RAW",
       "group_raw_jpeg_pairs_hint": "Afficher les fichiers RAW et JPEG/HEIC correspondants comme un seul élément",
-      "section_sorting": "Tri",
-      "folder_sort": "Dossiers",
+      "folder_sort": "Tri des dossiers",
       "folder_sort_hint": "Ordre de tri des dossiers affichés sous les albums",
       "folder_sort_options": [
         "Nom (A à Z)",
@@ -1333,23 +1336,14 @@
         "Date (Les plus anciens d'abord)",
         "Date (Les plus récents d'abord)"
       ],
-      "calendar_sort": "Calendrier",
-      "calendar_sort_hint": "Basé sur la date de prise ou la date de modification",
       "calendar_sort_options": [
-        "Date de prise (Crois.)",
-        "Date de prise (Décrois.)",
-        "Date de création (Crois.)",
-        "Date de création (Décrois.)",
-        "Date de modification (Crois.)",
-        "Date de modification (Décrois.)"
+        "Date de prise",
+        "Date de création",
+        "Date de modification"
       ],
-      "category_sort": "Catégories",
-      "category_sort_hint": "Tags, lieux, personnes et appareils photo",
       "category_sort_options": [
-        "Nom (A à Z)",
-        "Nom (Z à A)",
-        "Nombre (Croissant)",
-        "Nombre (Décroissant)"
+        "Nom",
+        "Nombre"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Retour",
         "privacy": "Confidentialite"
       },
+      "section_updates": "Mises à jour",
       "auto_update": {
         "update": "Mettre à jour",
         "check": "Vérifier les mises à jour",

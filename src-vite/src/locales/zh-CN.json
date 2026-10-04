@@ -599,7 +599,8 @@
       "recognized_person": "未找到已识别的人物",
       "person_hint": "在相册中索引人脸后，会显示在这里",
       "camera": "未找到相机",
-      "camera_hint": "添加带相机元数据的照片后，会显示在这里"
+      "camera_hint": "添加带相机元数据的照片后，会显示在这里",
+      "lens": "未找到镜头"
     },
     "set_album_cover": {
       "success": "相册封面设置成功",
@@ -713,9 +714,14 @@
       "time_asc": "时间升序",
       "time_desc": "时间降序"
     },
+    "location": {
+      "search": "搜索地点"
+    },
     "camera_panel": {
       "camera_title": "相机",
-      "lens_title": "镜头"
+      "lens_title": "镜头",
+      "camera_search": "搜索相机",
+      "lens_search": "搜索镜头"
     },
     "search": {
       "clear_history": "清空搜索历史"
@@ -1093,7 +1099,7 @@
       "border": "边框",
       "save_failed": "保存拼图失败：",
       "not_enough_photos": "请至少选择 2 张照片来创建拼图。",
-      "too_many_photos": "拼图仅使用前 {count} 张照片。",
+      "too_many_photos": "拼图仅使用前 {count} 张照片。",
       "save_title": "保存拼图",
       "folder": "文件夹",
       "file_name": "文件名",
@@ -1238,7 +1244,6 @@
       "section_language": "语言",
       "section_appearance": "外观",
       "section_interface": "显示",
-      "section_updates": "更新",
       "appearance": "配色模式",
       "appearance_options": [
         "明亮",
@@ -1318,14 +1323,12 @@
       "preview_mode": "RAW 预览方式"
     },
     "browse": {
-      "title": "浏览",
-      "section_album": "相册",
+      "section_album": "相册文件夹",
       "show_subfolder_files": "显示子文件夹中的文件",
       "show_subfolder_files_hint": "文件夹视图包含子文件夹内的文件",
       "group_raw_jpeg_pairs": "合并显示 RAW 配对",
       "group_raw_jpeg_pairs_hint": "将同名的 RAW 与 JPEG/HEIC 文件合并显示为一个条目",
-      "section_sorting": "排序",
-      "folder_sort": "文件夹",
+      "folder_sort": "文件夹排序",
       "folder_sort_hint": "相册下显示的文件夹排序方式",
       "folder_sort_options": [
         "名称（A 到 Z）",
@@ -1333,23 +1336,14 @@
         "日期（最早优先）",
         "日期（最新优先）"
       ],
-      "calendar_sort": "日历",
-      "calendar_sort_hint": "基于拍摄日期或修改日期",
       "calendar_sort_options": [
-        "拍摄日期（升序）",
-        "拍摄日期（降序）",
-        "创建日期（升序）",
-        "创建日期（降序）",
-        "修改日期（升序）",
-        "修改日期（降序）"
+        "拍摄日期",
+        "创建日期",
+        "修改日期"
       ],
-      "category_sort": "分类",
-      "category_sort_hint": "标签、地点、人物和相机",
       "category_sort_options": [
-        "名称（A 到 Z）",
-        "名称（Z 到 A）",
-        "数量（从低到高）",
-        "数量（从高到低）"
+        "名称",
+        "数量"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "问题反馈",
         "privacy": "隐私"
       },
+      "section_updates": "更新",
       "auto_update": {
         "update": "更新",
         "check": "检查更新",

@@ -599,7 +599,8 @@
       "recognized_person": "Nincs felismert személy",
       "person_hint": "Indexelje az arcokat az Albumokban a személyek megjelenítéséhez",
       "camera": "Nincs kamera",
-      "camera_hint": "Adjon hozzá kameraadatot tartalmazó fotókat"
+      "camera_hint": "Adjon hozzá kameraadatot tartalmazó fotókat",
+      "lens": "Nincs objektív"
     },
     "set_album_cover": {
       "success": "Albumborító beállítva",
@@ -713,9 +714,14 @@
       "time_asc": "Idő szerint növekvő",
       "time_desc": "Idő szerint csökkenő"
     },
+    "location": {
+      "search": "Helyszínek keresése"
+    },
     "camera_panel": {
       "camera_title": "Kamerák",
-      "lens_title": "Objektívek"
+      "lens_title": "Objektívek",
+      "camera_search": "Fényképezőgépek keresése",
+      "lens_search": "Objektívek keresése"
     },
     "search": {
       "clear_history": "Keresési előzmények törlése"
@@ -1238,7 +1244,6 @@
       "section_language": "Nyelv",
       "section_appearance": "Megjelenés",
       "section_interface": "Felület",
-      "section_updates": "Frissítések",
       "appearance": "Színmód",
       "appearance_options": [
         "Világos",
@@ -1318,14 +1323,12 @@
       "preview_mode": "RAW-előnézet módja"
     },
     "browse": {
-      "title": "Böngészés",
-      "section_album": "Album",
+      "section_album": "Albummappa",
       "show_subfolder_files": "Almappák fájljainak megjelenítése",
       "show_subfolder_files_hint": "A mappanézet az almappák fájljait is tartalmazza",
       "group_raw_jpeg_pairs": "RAW-párok csoportosítása",
       "group_raw_jpeg_pairs_hint": "Az egyező RAW- és JPEG/HEIC-fájlok egy elemként jelennek meg",
-      "section_sorting": "Rendezés",
-      "folder_sort": "Mappák",
+      "folder_sort": "Mapparendezés",
       "folder_sort_hint": "Az albumok mappáinak rendezési sorrendje",
       "folder_sort_options": [
         "Név (A–Z)",
@@ -1333,23 +1336,14 @@
         "Dátum (legrégebbi elöl)",
         "Dátum (legújabb elöl)"
       ],
-      "calendar_sort": "Naptár",
-      "calendar_sort_hint": "A készítés vagy módosítás dátuma alapján",
       "calendar_sort_options": [
-        "Készítés dátuma (növekvő)",
-        "Készítés dátuma (csökkenő)",
-        "Létrehozás dátuma (növekvő)",
-        "Létrehozás dátuma (csökkenő)",
-        "Módosítás dátuma (növekvő)",
-        "Módosítás dátuma (csökkenő)"
+        "Készítés dátuma",
+        "Létrehozás dátuma",
+        "Módosítás dátuma"
       ],
-      "category_sort": "Kategóriák",
-      "category_sort_hint": "Címkék, helyek, személyek és kamerák",
       "category_sort_options": [
-        "Név (A–Z)",
-        "Név (Z–A)",
-        "Darabszám (növekvő)",
-        "Darabszám (csökkenő)"
+        "Név",
+        "Darabszám"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Visszajelzés",
         "privacy": "Adatvédelem"
       },
+      "section_updates": "Frissítések",
       "auto_update": {
         "update": "Frissítés",
         "check": "Frissítések keresése",

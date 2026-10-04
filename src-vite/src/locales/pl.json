@@ -599,7 +599,8 @@
       "recognized_person": "Nie znaleziono rozpoznanej osoby",
       "person_hint": "Zindeksuj twarze w Albumach, aby zobaczyć tutaj osoby",
       "camera": "Nie znaleziono aparatów",
-      "camera_hint": "Dodaj zdjęcia z metadanymi aparatu, aby zobaczyć je tutaj"
+      "camera_hint": "Dodaj zdjęcia z metadanymi aparatu, aby zobaczyć je tutaj",
+      "lens": "Nie znaleziono obiektywów"
     },
     "set_album_cover": {
       "success": "Okładka albumu ustawiona pomyślnie",
@@ -713,9 +714,14 @@
       "time_asc": "Czas rosnąco",
       "time_desc": "Czas malejąco"
     },
+    "location": {
+      "search": "Szukaj lokalizacji"
+    },
     "camera_panel": {
       "camera_title": "Aparaty",
-      "lens_title": "Obiektywy"
+      "lens_title": "Obiektywy",
+      "camera_search": "Szukaj aparatów",
+      "lens_search": "Szukaj obiektywów"
     },
     "search": {
       "clear_history": "Wyczyść historię wyszukiwania"
@@ -1093,7 +1099,7 @@
       "border": "Ramka",
       "save_failed": "Nie udało się zapisać montażu:",
       "not_enough_photos": "Wybierz co najmniej 2 zdjęcia, aby utworzyć montaż.",
-      "too_many_photos": "W montażu użyto tylko pierwszych {count} zdjęć.",
+      "too_many_photos": "W montażu użyto tylko pierwszych {count} zdjęć.",
       "save_title": "Zapisz montaż",
       "folder": "Folder",
       "file_name": "Nazwa pliku",
@@ -1238,7 +1244,6 @@
       "section_language": "Język",
       "section_appearance": "Wygląd",
       "section_interface": "Interfejs",
-      "section_updates": "Aktualizacje",
       "appearance": "Tryb kolorów",
       "appearance_options": [
         "Jasny",
@@ -1307,25 +1312,23 @@
       "rawRenderBrightness": "Jasność renderowania",
       "option_embedded": "Preferuj osadzony podgląd",
       "option_rendered": "Zawsze renderuj RAW",
+      "option_original": "Oryginalna ekspozycja",
+      "option_brightened": "Rozjaśniona",
       "brightness_hint": "Dotyczy renderowania RAW, również gdy osadzony podgląd jest niedostępny.",
       "switch_to": "Przełącz na {source}",
       "show_pair": "Pokaż sparowany {format}",
       "source_embedded": "Osadzony",
       "source_rendered": "Renderowany",
       "source_brightened": "Rozjaśniona",
-      "option_original": "Oryginalna ekspozycja",
-      "option_brightened": "Rozjaśniona",
       "preview_mode": "Tryb podglądu RAW"
     },
     "browse": {
-      "title": "Przeglądanie",
-      "section_album": "Album",
+      "section_album": "Folder albumu",
       "show_subfolder_files": "Pokazuj pliki z podfolderów",
       "show_subfolder_files_hint": "Widok folderów zawiera pliki z folderów podrzędnych",
       "group_raw_jpeg_pairs": "Grupuj pary RAW",
       "group_raw_jpeg_pairs_hint": "Pokazuj dopasowane pliki RAW i JPEG/HEIC jako jeden element",
-      "section_sorting": "Sortowanie",
-      "folder_sort": "Foldery",
+      "folder_sort": "Sortowanie folderów",
       "folder_sort_hint": "Kolejność sortowania folderów wyświetlanych pod albumami",
       "folder_sort_options": [
         "Nazwa (A do Z)",
@@ -1333,23 +1336,14 @@
         "Data (najstarsze najpierw)",
         "Data (najnowsze najpierw)"
       ],
-      "calendar_sort": "Kalendarz",
-      "calendar_sort_hint": "Na podstawie daty wykonania lub daty modyfikacji",
       "calendar_sort_options": [
-        "Data wykonania (rosnąco)",
-        "Data wykonania (malejąco)",
-        "Data utworzenia (rosnąco)",
-        "Data utworzenia (malejąco)",
-        "Data modyfikacji (rosnąco)",
-        "Data modyfikacji (malejąco)"
+        "Data wykonania",
+        "Data utworzenia",
+        "Data modyfikacji"
       ],
-      "category_sort": "Kategorie",
-      "category_sort_hint": "Tagi, lokalizacje, osoby i aparaty",
       "category_sort_options": [
-        "Nazwa (A do Z)",
-        "Nazwa (Z do A)",
-        "Liczba (od najmniejszej)",
-        "Liczba (od największej)"
+        "Nazwa",
+        "Liczba"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Prześlij opinię",
         "privacy": "Prywatność"
       },
+      "section_updates": "Aktualizacje",
       "auto_update": {
         "update": "Aktualizuj",
         "check": "Sprawdź aktualizacje",

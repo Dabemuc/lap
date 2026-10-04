@@ -599,7 +599,8 @@
       "recognized_person": "No recognized person found",
       "person_hint": "Index faces in Albums to see people here",
       "camera": "No cameras found",
-      "camera_hint": "Add photos with camera metadata to see them here"
+      "camera_hint": "Add photos with camera metadata to see them here",
+      "lens": "No lenses found"
     },
     "set_album_cover": {
       "success": "Album cover set successfully",
@@ -713,9 +714,14 @@
       "time_asc": "Time asc",
       "time_desc": "Time desc"
     },
+    "location": {
+      "search": "Search locations"
+    },
     "camera_panel": {
       "camera_title": "Cameras",
-      "lens_title": "Lenses"
+      "lens_title": "Lenses",
+      "camera_search": "Search cameras",
+      "lens_search": "Search lenses"
     },
     "search": {
       "clear_history": "Clear search history"
@@ -1093,7 +1099,7 @@
       "border": "Border",
       "save_failed": "Failed to save the montage:",
       "not_enough_photos": "Select at least 2 photos to create a montage.",
-      "too_many_photos": "Only the first {count} photos are used in the montage.",
+      "too_many_photos": "Only the first {count} photos are used in the montage.",
       "save_title": "Save montage",
       "folder": "Folder",
       "file_name": "File name",
@@ -1238,7 +1244,6 @@
       "section_language": "Language",
       "section_appearance": "Appearance",
       "section_interface": "Interface",
-      "section_updates": "Updates",
       "appearance": "Color mode",
       "appearance_options": [
         "Light",
@@ -1318,14 +1323,12 @@
       "preview_mode": "RAW preview mode"
     },
     "browse": {
-      "title": "Browse",
-      "section_album": "Album",
+      "section_album": "Album folder",
       "show_subfolder_files": "Show files from subfolders",
       "show_subfolder_files_hint": "Folder view includes files in child folders",
       "group_raw_jpeg_pairs": "Group RAW Pairs",
       "group_raw_jpeg_pairs_hint": "Show matching RAW and JPEG/HEIC files as a single item",
-      "section_sorting": "Sorting",
-      "folder_sort": "Folders",
+      "folder_sort": "Folder sorting",
       "folder_sort_hint": "Sort order for folders shown under albums",
       "folder_sort_options": [
         "Name (A to Z)",
@@ -1333,23 +1336,14 @@
         "Date (Oldest first)",
         "Date (Newest first)"
       ],
-      "calendar_sort": "Calendar",
-      "calendar_sort_hint": "Based on taken date or modified date",
       "calendar_sort_options": [
-        "Taken date (Asc)",
-        "Taken date (Desc)",
-        "Created date (Asc)",
-        "Created date (Desc)",
-        "Modified date (Asc)",
-        "Modified date (Desc)"
+        "Taken Date",
+        "Created Date",
+        "Modified Date"
       ],
-      "category_sort": "Categories",
-      "category_sort_hint": "Tags, locations, people, and cameras",
       "category_sort_options": [
-        "Name (A to Z)",
-        "Name (Z to A)",
-        "Count (Low to high)",
-        "Count (High to low)"
+        "Name",
+        "Count"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Feedback",
         "privacy": "Privacy"
       },
+      "section_updates": "Updates",
       "auto_update": {
         "update": "Update",
         "check": "Check for updates",

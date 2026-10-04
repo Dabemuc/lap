@@ -196,7 +196,8 @@ async function refreshSmartAlbumCounts() {
         sortOrder: Number(album?.sort?.order ?? 1),
         folderSort: Number(config.settings.folderSort || 0),
         calendarSort: Number(config.settings.calendarSort || 0),
-        categorySort: Number(config.settings.categorySort || 0),
+        // Count/sum query is not grouped, so category ordering is irrelevant here.
+        categorySort: 0,
       };
       const result = await getSmartQueryCountAndSum(params);
       return [String(album.id), Number(result?.[0] || 0)] as const;

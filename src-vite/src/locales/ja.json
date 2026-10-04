@@ -599,7 +599,8 @@
       "recognized_person": "認識済みの人物が見つかりません",
       "person_hint": "アルバムで顔をインデックスすると、ここに人物が表示されます",
       "camera": "カメラが見つかりません",
-      "camera_hint": "カメラ情報付きの写真を追加すると、ここに表示されます"
+      "camera_hint": "カメラ情報付きの写真を追加すると、ここに表示されます",
+      "lens": "レンズが見つかりません"
     },
     "set_album_cover": {
       "success": "アルバムの表紙を設定しました",
@@ -713,9 +714,14 @@
       "time_asc": "古い順",
       "time_desc": "新しい順"
     },
+    "location": {
+      "search": "場所を検索"
+    },
     "camera_panel": {
       "camera_title": "カメラ",
-      "lens_title": "レンズ"
+      "lens_title": "レンズ",
+      "camera_search": "カメラを検索",
+      "lens_search": "レンズを検索"
     },
     "search": {
       "clear_history": "検索履歴を消去"
@@ -1093,7 +1099,7 @@
       "border": "枠",
       "save_failed": "モンタージュを保存できませんでした:",
       "not_enough_photos": "モンタージュを作成するには2枚以上の写真を選択してください。",
-      "too_many_photos": "モンタージュには最初の{count}枚の写真のみ使用されます。",
+      "too_many_photos": "モンタージュには最初の{count}枚の写真のみ使用されます。",
       "save_title": "モンタージュを保存",
       "folder": "フォルダー",
       "file_name": "ファイル名",
@@ -1238,7 +1244,6 @@
       "section_language": "言語",
       "section_appearance": "外観",
       "section_interface": "表示",
-      "section_updates": "アップデート",
       "appearance": "外観",
       "appearance_options": [
         "ライト",
@@ -1307,25 +1312,23 @@
       "rawRenderBrightness": "レンダリングの明るさ",
       "option_embedded": "埋め込みプレビューを優先",
       "option_rendered": "常に RAW をレンダリング",
+      "option_original": "元の露出",
+      "option_brightened": "明るめ",
       "brightness_hint": "埋め込みプレビューが利用できない場合を含め、RAW のレンダリング時に適用されます。",
       "switch_to": "{source} に切り替え",
       "show_pair": "ペアの {format} を表示",
       "source_embedded": "埋め込み",
       "source_rendered": "レンダリング",
       "source_brightened": "明るめ",
-      "option_original": "元の露出",
-      "option_brightened": "明るめ",
       "preview_mode": "RAW プレビューモード"
     },
     "browse": {
-      "title": "ブラウズ",
-      "section_album": "アルバム",
+      "section_album": "アルバムフォルダ",
       "show_subfolder_files": "サブフォルダー内のファイルを表示",
       "show_subfolder_files_hint": "フォルダービューに子フォルダー内のファイルを含めます",
       "group_raw_jpeg_pairs": "RAWペアをまとめて表示",
       "group_raw_jpeg_pairs_hint": "一致する RAW と JPEG/HEIC ファイルを 1 つの項目として表示します",
-      "section_sorting": "並べ替え",
-      "folder_sort": "フォルダ",
+      "folder_sort": "フォルダの並び順",
       "folder_sort_hint": "アルバム配下に表示されるフォルダの並び順です",
       "folder_sort_options": [
         "名前 (A から Z)",
@@ -1333,23 +1336,14 @@
         "日付 (古い順)",
         "日付 (新しい順)"
       ],
-      "calendar_sort": "カレンダー",
-      "calendar_sort_hint": "撮影日または更新日に基づく",
       "calendar_sort_options": [
-        "撮影日（昇順）",
-        "撮影日（降順）",
-        "作成日（昇順）",
-        "作成日（降順）",
-        "更新日（昇順）",
-        "更新日（降順）"
+        "撮影日",
+        "作成日",
+        "更新日"
       ],
-      "category_sort": "カテゴリ",
-      "category_sort_hint": "タグ、場所、人物、カメラ",
       "category_sort_options": [
-        "名前 (A から Z)",
-        "名前 (Z から A)",
-        "件数 (少ない順)",
-        "件数 (多い順)"
+        "名前",
+        "件数"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "フィードバック",
         "privacy": "プライバシー"
       },
+      "section_updates": "更新",
       "auto_update": {
         "update": "更新",
         "check": "更新を確認",

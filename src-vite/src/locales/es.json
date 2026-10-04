@@ -599,7 +599,8 @@
       "recognized_person": "No se encontró ninguna persona reconocida",
       "person_hint": "Indexa rostros en Álbumes para ver personas aquí",
       "camera": "No se encontraron cámaras",
-      "camera_hint": "Añade fotos con metadatos de cámara para verlas aquí"
+      "camera_hint": "Añade fotos con metadatos de cámara para verlas aquí",
+      "lens": "No se encontraron lentes"
     },
     "set_album_cover": {
       "success": "Portada establecida",
@@ -713,9 +714,14 @@
       "time_asc": "Tiempo asc",
       "time_desc": "Tiempo desc"
     },
+    "location": {
+      "search": "Buscar ubicaciones"
+    },
     "camera_panel": {
       "camera_title": "Cámaras",
-      "lens_title": "Lentes"
+      "lens_title": "Lentes",
+      "camera_search": "Buscar cámaras",
+      "lens_search": "Buscar lentes"
     },
     "search": {
       "clear_history": "Borrar historial"
@@ -1093,7 +1099,7 @@
       "border": "Borde",
       "save_failed": "No se pudo guardar el montaje:",
       "not_enough_photos": "Selecciona al menos 2 fotos para crear un montaje.",
-      "too_many_photos": "Solo se usan las primeras {count} fotos en el montaje.",
+      "too_many_photos": "Solo se usan las primeras {count} fotos en el montaje.",
       "save_title": "Guardar montaje",
       "folder": "Carpeta",
       "file_name": "Nombre del archivo",
@@ -1238,7 +1244,6 @@
       "section_language": "Idioma",
       "section_appearance": "Apariencia",
       "section_interface": "Visualización",
-      "section_updates": "Actualizaciones",
       "appearance": "Apariencia",
       "appearance_options": [
         "Claro",
@@ -1307,25 +1312,23 @@
       "rawRenderBrightness": "Brillo de renderizado",
       "option_embedded": "Preferir vista previa incrustada",
       "option_rendered": "Renderizar RAW siempre",
+      "option_original": "Exposición original",
+      "option_brightened": "Aclarada",
       "brightness_hint": "Se aplica al renderizar RAW, incluso si no hay una vista previa incrustada disponible.",
       "switch_to": "Cambiar a {source}",
       "show_pair": "Mostrar {format} emparejado",
       "source_embedded": "Incrustada",
       "source_rendered": "Renderizada",
       "source_brightened": "Aclarada",
-      "option_original": "Exposición original",
-      "option_brightened": "Aclarada",
       "preview_mode": "Modo de vista previa RAW"
     },
     "browse": {
-      "title": "Explorar",
-      "section_album": "Álbum",
+      "section_album": "Carpeta de álbum",
       "show_subfolder_files": "Mostrar archivos de subcarpetas",
       "show_subfolder_files_hint": "La vista de carpeta incluye archivos de carpetas secundarias",
       "group_raw_jpeg_pairs": "Agrupar pares RAW",
       "group_raw_jpeg_pairs_hint": "Mostrar archivos RAW y JPEG/HEIC coincidentes como un solo elemento",
-      "section_sorting": "Orden",
-      "folder_sort": "Carpetas",
+      "folder_sort": "Orden de carpetas",
       "folder_sort_hint": "Orden de clasificación para las carpetas mostradas dentro de los álbumes",
       "folder_sort_options": [
         "Nombre (A a Z)",
@@ -1333,23 +1336,14 @@
         "Fecha (Más antiguo primero)",
         "Fecha (Más reciente primero)"
       ],
-      "calendar_sort": "Calendario",
-      "calendar_sort_hint": "Basado en la fecha de toma o la fecha de modificación",
       "calendar_sort_options": [
-        "Fecha de captura (Asc.)",
-        "Fecha de captura (Desc.)",
-        "Fecha de creación (Asc.)",
-        "Fecha de creación (Desc.)",
-        "Fecha de modificación (Asc.)",
-        "Fecha de modificación (Desc.)"
+        "Fecha de toma",
+        "Fecha de creación",
+        "Fecha de modificación"
       ],
-      "category_sort": "Categorías",
-      "category_sort_hint": "Etiquetas, ubicaciones, personas y cámaras",
       "category_sort_options": [
-        "Nombre (A a Z)",
-        "Nombre (Z a A)",
-        "Cantidad (De menor a mayor)",
-        "Cantidad (De mayor a menor)"
+        "Nombre",
+        "Recuento"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Comentarios",
         "privacy": "Privacidad"
       },
+      "section_updates": "Actualizaciones",
       "auto_update": {
         "update": "Actualizar",
         "check": "Buscar actualizaciones",

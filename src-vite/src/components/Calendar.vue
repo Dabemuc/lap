@@ -16,6 +16,7 @@
           {{ tab.label }}
         </button>
       </div>
+      <SortMenuButton v-model="config.settings.calendarSort" kind="calendar" />
     </div>
 
     <!-- calendar -->
@@ -124,6 +125,7 @@ import { IconCalendarDay, IconRight } from '@/common/icons';
 
 import CalendarMonthly from '@/components/CalendarMonthly.vue';
 import CalendarDaily from '@/components/CalendarDaily.vue';
+import SortMenuButton from '@/components/SortMenuButton.vue';
 
 const props = defineProps({
   titlebar: String,

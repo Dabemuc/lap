@@ -3,17 +3,25 @@
 
     <!-- Dropdown Trigger -->
     <button tabindex="-1"
-      class="px-2 py-1 w-full h-8 flex items-center outline-none rounded-box gap-1 border transition-colors duration-300 text-sm whitespace-nowrap"
+      :title="title"
+      class="flex items-center outline-none rounded-box transition-colors duration-300 whitespace-nowrap"
       :class="[
-        disabled ? 'text-base-content/30 cursor-default' : 'hover:bg-base-100/30 hover:text-base-content cursor-pointer',
-        selected ? 'border-primary text-primary' : 'border-base-content/15'
+        size === 'small' ? 'h-6 text-xs' : 'h-8 py-1 text-sm',
+        iconOnly
+          ? (size === 'small' ? 'px-0 w-6 justify-center' : 'px-0 w-8 justify-center')
+          : (size === 'small' ? 'px-1.5 w-full gap-1 border' : 'px-2 w-full gap-1 border'),
+        iconOnly ? '' : (selected ? 'border-primary' : 'border-base-content/15'),
+        disabled
+          ? 'text-base-content/30 cursor-default'
+          : (selected ? 'text-primary' : 'text-base-content/70'),
+        disabled ? '' : 'hover:bg-base-100/30 hover:text-base-content cursor-pointer'
       ]"
       :disabled="disabled"
       @click="toggleDropdown"
     >
       <component v-if="icon" :is="icon" class="w-4 h-4 shrink-0" />
-      <span>{{ triggerLabel }}</span>
-      <IconArrowDown class="w-3 h-3 shrink-0 opacity-50" />
+      <span v-if="!iconOnly">{{ triggerLabel }}</span>
+      <IconArrowDown v-if="!iconOnly" class="w-3 h-3 shrink-0 opacity-50" />
     </button>
 
     <!-- Dropdown Menu -->
@@ -120,6 +128,18 @@ const props = defineProps({
   icon: {
     type: Object,
     default: null,
+  },
+  iconOnly: {
+    type: Boolean,
+    default: false,
+  },
+  size: {
+    type: String,
+    default: 'medium', // 'small' | 'medium'
+  },
+  title: {
+    type: String,
+    default: '',
   },
 });
 

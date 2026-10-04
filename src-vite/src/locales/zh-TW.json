@@ -599,7 +599,8 @@
       "recognized_person": "找不到已辨識的人物",
       "person_hint": "在相簿中建立人臉索引即可在此查看人物",
       "camera": "找不到相機",
-      "camera_hint": "新增具相機中繼資料的相片即可在此查看"
+      "camera_hint": "新增具相機中繼資料的相片即可在此查看",
+      "lens": "找不到鏡頭"
     },
     "set_album_cover": {
       "success": "已成功設為相簿封面",
@@ -713,9 +714,14 @@
       "time_asc": "時間遞增",
       "time_desc": "時間遞減"
     },
+    "location": {
+      "search": "搜尋地點"
+    },
     "camera_panel": {
       "camera_title": "相機",
-      "lens_title": "鏡頭"
+      "lens_title": "鏡頭",
+      "camera_search": "搜尋相機",
+      "lens_search": "搜尋鏡頭"
     },
     "search": {
       "clear_history": "清除搜尋紀錄"
@@ -1238,7 +1244,6 @@
       "section_language": "語言",
       "section_appearance": "外觀",
       "section_interface": "介面",
-      "section_updates": "更新",
       "appearance": "色彩模式",
       "appearance_options": [
         "淺色",
@@ -1318,14 +1323,12 @@
       "preview_mode": "RAW 預覽模式"
     },
     "browse": {
-      "title": "瀏覽",
-      "section_album": "相簿",
+      "section_album": "相簿資料夾",
       "show_subfolder_files": "顯示子資料夾的檔案",
       "show_subfolder_files_hint": "資料夾檢視包含子資料夾中的檔案",
       "group_raw_jpeg_pairs": "合併 RAW 配對",
       "group_raw_jpeg_pairs_hint": "將相符的 RAW 與 JPEG/HEIC 檔案合併顯示為單一項目",
-      "section_sorting": "排序",
-      "folder_sort": "資料夾",
+      "folder_sort": "資料夾排序",
       "folder_sort_hint": "相簿下資料夾的排序方式",
       "folder_sort_options": [
         "名稱（A 到 Z）",
@@ -1333,23 +1336,14 @@
         "日期（最舊優先）",
         "日期（最新優先）"
       ],
-      "calendar_sort": "行事曆",
-      "calendar_sort_hint": "依拍攝日期或修改日期",
       "calendar_sort_options": [
-        "拍攝日期（遞增）",
-        "拍攝日期（遞減）",
-        "建立日期（遞增）",
-        "建立日期（遞減）",
-        "修改日期（遞增）",
-        "修改日期（遞減）"
+        "拍攝日期",
+        "建立日期",
+        "修改日期"
       ],
-      "category_sort": "分類",
-      "category_sort_hint": "標籤、地點、人物與相機",
       "category_sort_options": [
-        "名稱（A 到 Z）",
-        "名稱（Z 到 A）",
-        "數量（由少到多）",
-        "數量（由多到少）"
+        "名稱",
+        "數量"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "意見回饋",
         "privacy": "隱私"
       },
+      "section_updates": "更新",
       "auto_update": {
         "update": "更新",
         "check": "檢查更新",

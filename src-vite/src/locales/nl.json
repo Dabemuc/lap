@@ -599,7 +599,8 @@
       "recognized_person": "Geen herkende persoon gevonden",
       "person_hint": "Indexeer gezichten in Albums om hier personen te zien",
       "camera": "Geen camera's gevonden",
-      "camera_hint": "Voeg foto's met cameragegevens toe om ze hier te zien"
+      "camera_hint": "Voeg foto's met cameragegevens toe om ze hier te zien",
+      "lens": "Geen objectieven gevonden"
     },
     "set_album_cover": {
       "success": "Albumomslag ingesteld",
@@ -713,9 +714,14 @@
       "time_asc": "Tijd oplopend",
       "time_desc": "Tijd aflopend"
     },
+    "location": {
+      "search": "Locaties zoeken"
+    },
     "camera_panel": {
       "camera_title": "Camera's",
-      "lens_title": "Objectieven"
+      "lens_title": "Objectieven",
+      "camera_search": "Camera's zoeken",
+      "lens_search": "Objectieven zoeken"
     },
     "search": {
       "clear_history": "Zoekgeschiedenis wissen"
@@ -1238,7 +1244,6 @@
       "section_language": "Taal",
       "section_appearance": "Weergave",
       "section_interface": "Interface",
-      "section_updates": "Updates",
       "appearance": "Kleurmodus",
       "appearance_options": [
         "Licht",
@@ -1307,25 +1312,23 @@
       "rawRenderBrightness": "Helderheid bij renderen",
       "option_embedded": "Ingesloten voorbeeld eerst",
       "option_rendered": "RAW altijd renderen",
+      "option_original": "Originele belichting",
+      "option_brightened": "Ophelderd",
       "brightness_hint": "Van toepassing bij het renderen van RAW, ook als er geen ingesloten voorbeeld beschikbaar is.",
       "switch_to": "Overschakelen naar {source}",
       "show_pair": "Gekoppelde {format} tonen",
       "source_embedded": "Ingesloten",
       "source_rendered": "Gerenderd",
       "source_brightened": "Ophelderd",
-      "option_original": "Originele belichting",
-      "option_brightened": "Ophelderd",
       "preview_mode": "RAW-voorbeeldmodus"
     },
     "browse": {
-      "title": "Bladeren",
-      "section_album": "Album",
+      "section_album": "Albummap",
       "show_subfolder_files": "Bestanden uit submappen tonen",
       "show_subfolder_files_hint": "De mapweergave toont ook bestanden in onderliggende mappen",
       "group_raw_jpeg_pairs": "RAW-paren groeperen",
       "group_raw_jpeg_pairs_hint": "Toon bij elkaar horende RAW- en JPEG/HEIC-bestanden als één item",
-      "section_sorting": "Sorteren",
-      "folder_sort": "Mappen",
+      "folder_sort": "Mapvolgorde",
       "folder_sort_hint": "Sorteervolgorde voor mappen onder albums",
       "folder_sort_options": [
         "Naam (A tot Z)",
@@ -1333,23 +1336,14 @@
         "Datum (oudste eerst)",
         "Datum (nieuwste eerst)"
       ],
-      "calendar_sort": "Kalender",
-      "calendar_sort_hint": "Op basis van opnamedatum of wijzigingsdatum",
       "calendar_sort_options": [
-        "Opnamedatum (oplopend)",
-        "Opnamedatum (aflopend)",
-        "Aanmaakdatum (oplopend)",
-        "Aanmaakdatum (aflopend)",
-        "Wijzigingsdatum (oplopend)",
-        "Wijzigingsdatum (aflopend)"
+        "Opnamedatum",
+        "Aanmaakdatum",
+        "Wijzigingsdatum"
       ],
-      "category_sort": "Categorieën",
-      "category_sort_hint": "Tags, locaties, personen en camera's",
       "category_sort_options": [
-        "Naam (A tot Z)",
-        "Naam (Z tot A)",
-        "Aantal (laag naar hoog)",
-        "Aantal (hoog naar laag)"
+        "Naam",
+        "Aantal"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Feedback",
         "privacy": "Privacy"
       },
+      "section_updates": "Updates",
       "auto_update": {
         "update": "Bijwerken",
         "check": "Controleren op updates",

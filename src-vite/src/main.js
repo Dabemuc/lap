@@ -127,12 +127,6 @@ if (isMainWindow) {
   listen('settings-folderSort-changed', (event) => {
     config.setFolderSort(event.payload)
   })
-  listen('settings-calendarSort-changed', (event) => {
-    config.setCalendarSort(event.payload)
-  })
-  listen('settings-categorySort-changed', (event) => {
-    config.setCategorySort(event.payload)
-  })
   listen('settings-showSubfolderFiles-changed', (event) => {
     config.setShowSubfolderFiles(event.payload)
   })

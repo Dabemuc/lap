@@ -599,7 +599,8 @@
       "recognized_person": "Nenhuma pessoa reconhecida encontrada",
       "person_hint": "Indexe rostos em Álbuns para ver pessoas aqui",
       "camera": "Nenhuma câmera encontrada",
-      "camera_hint": "Adicione fotos com metadados da câmera para vê-las aqui"
+      "camera_hint": "Adicione fotos com metadados da câmera para vê-las aqui",
+      "lens": "Nenhuma lente encontrada"
     },
     "set_album_cover": {
       "success": "Capa definida",
@@ -713,9 +714,14 @@
       "time_asc": "Tempo asc",
       "time_desc": "Tempo desc"
     },
+    "location": {
+      "search": "Pesquisar locais"
+    },
     "camera_panel": {
       "camera_title": "Câmeras",
-      "lens_title": "Lentes"
+      "lens_title": "Lentes",
+      "camera_search": "Pesquisar câmeras",
+      "lens_search": "Pesquisar lentes"
     },
     "search": {
       "clear_history": "Limpar histórico"
@@ -1093,7 +1099,7 @@
       "border": "Borda",
       "save_failed": "Falha ao salvar a montagem:",
       "not_enough_photos": "Selecione pelo menos 2 fotos para criar uma montagem.",
-      "too_many_photos": "Apenas as primeiras {count} fotos são usadas na montagem.",
+      "too_many_photos": "Apenas as primeiras {count} fotos são usadas na montagem.",
       "save_title": "Salvar montagem",
       "folder": "Pasta",
       "file_name": "Nome do arquivo",
@@ -1238,7 +1244,6 @@
       "section_language": "Idioma",
       "section_appearance": "Aparência",
       "section_interface": "Exibição",
-      "section_updates": "Atualizações",
       "appearance": "Aparência",
       "appearance_options": [
         "Claro",
@@ -1307,25 +1312,23 @@
       "rawRenderBrightness": "Brilho da renderização",
       "option_embedded": "Preferir pré-visualização incorporada",
       "option_rendered": "Sempre renderizar RAW",
+      "option_original": "Exposição original",
+      "option_brightened": "Clareada",
       "brightness_hint": "Aplica-se ao renderizar RAW, inclusive quando a pré-visualização incorporada não está disponível.",
       "switch_to": "Alternar para {source}",
       "show_pair": "Mostrar {format} associado",
       "source_embedded": "Incorporada",
       "source_rendered": "Renderizada",
       "source_brightened": "Clareada",
-      "option_original": "Exposição original",
-      "option_brightened": "Clareada",
       "preview_mode": "Modo de pré-visualização RAW"
     },
     "browse": {
-      "title": "Navegar",
-      "section_album": "Álbum",
+      "section_album": "Pasta do álbum",
       "show_subfolder_files": "Mostrar arquivos de subpastas",
       "show_subfolder_files_hint": "A visualização de pasta inclui arquivos em subpastas",
       "group_raw_jpeg_pairs": "Agrupar pares RAW",
       "group_raw_jpeg_pairs_hint": "Mostrar arquivos RAW e JPEG/HEIC correspondentes como um único item",
-      "section_sorting": "Ordenação",
-      "folder_sort": "Pastas",
+      "folder_sort": "Ordenação de pastas",
       "folder_sort_hint": "Ordem de classificação das pastas exibidas dentro dos álbuns",
       "folder_sort_options": [
         "Nome (A a Z)",
@@ -1333,23 +1336,14 @@
         "Data (Mais antigos primeiro)",
         "Data (Mais recentes primeiro)"
       ],
-      "calendar_sort": "Calendário",
-      "calendar_sort_hint": "Com base na data de captura ou na data de modificação",
       "calendar_sort_options": [
-        "Data de captura (Cresc.)",
-        "Data de captura (Decresc.)",
-        "Data de criação (Cresc.)",
-        "Data de criação (Decresc.)",
-        "Data de modificação (Cresc.)",
-        "Data de modificação (Decresc.)"
+        "Data de captura",
+        "Data de criação",
+        "Data de modificação"
       ],
-      "category_sort": "Categorias",
-      "category_sort_hint": "Tags, locais, pessoas e câmeras",
       "category_sort_options": [
-        "Nome (A a Z)",
-        "Nome (Z a A)",
-        "Contagem (Menor para maior)",
-        "Contagem (Maior para menor)"
+        "Nome",
+        "Contagem"
       ]
     },
     "grid": {
@@ -1671,6 +1665,7 @@
         "feedback": "Feedback",
         "privacy": "Privacidade"
       },
+      "section_updates": "Atualizações",
       "auto_update": {
         "update": "Atualizar",
         "check": "Verificar atualizações",

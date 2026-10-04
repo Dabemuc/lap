@@ -117,7 +117,12 @@ export const useConfigStore = defineStore('configStore', {
       // navigation settings
       folderSort: 0,              // folder_sort_options: 0=name asc, 1=name desc, 2=date asc(oldest first), 3=date desc(newest first)
       calendarSort: 0,            // 0=taken asc, 1=taken desc, 2=created asc, 3=created desc, 4=modified asc, 5=modified desc
-      categorySort: 0,            // category_sort_options: 0=name asc, 1=name desc, 2=count asc, 3=count desc
+      // Per-view category sort (category_sort_options: 0=name asc, 1=name desc, 2=count asc, 3=count desc).
+      // Lens shares cameraSort (the lens list is a tab of the Camera view).
+      tagSort: 0,
+      locationSort: 0,
+      personSort: 0,
+      cameraSort: 0,
       showSubfolderFiles: false,  // show subfolder files (in album folder view)
 
       // RAW display settings
@@ -264,12 +269,6 @@ export const useConfigStore = defineStore('configStore', {
     },
     setFolderSort(folderSort) {
       this.settings.folderSort = folderSort;
-    },
-    setCalendarSort(calendarSort) {
-      this.settings.calendarSort = calendarSort;
-    },
-    setCategorySort(categorySort) {
-      this.settings.categorySort = categorySort;
     },
     setShowSubfolderFiles(showSubfolderFiles) {
       this.settings.showSubfolderFiles = showSubfolderFiles;

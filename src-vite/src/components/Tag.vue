@@ -7,6 +7,7 @@
           ({{ displayedTagCount.toLocaleString() }})</template
         ></span
       >
+      <SortMenuButton v-model="config.settings.tagSort" kind="category" />
       <TButton
         :icon="IconAdd"
         buttonSize="small"
@@ -314,6 +315,7 @@ import {
 import ContextMenu from "./ContextMenu.vue";
 import TButton from "./TButton.vue";
 import MessageBox from "./MessageBox.vue";
+import SortMenuButton from "./SortMenuButton.vue";
 
 defineProps<{ titlebar: string }>();
 defineEmits(["editDataChanged"]);
@@ -446,6 +448,9 @@ const visibleGroups = computed(() =>
 // and press Enter — so hide the placeholder from the count until then.
 // Group placeholders don't affect this count (title counts tags only).
 const displayedTagCount = computed(() => {
+  // While searching, count the tags actually shown (groupTags already filters).
+  const q = search.value.trim();
+  if (q) return visibleGroups.value.reduce((sum, g) => sum + (g.tags?.length || 0), 0);
   const pending = pendingCreate.value;
   const n = tags.value.length;
   return pending && pending.kind === "tag" ? Math.max(0, n - 1) : n;
@@ -691,7 +696,7 @@ async function load() {
   const library = libConfig._libraryId;
   try {
     const [allTags, counts, allGroups] = await Promise.all([
-      getAllTags(config.settings.categorySort),
+      getAllTags(config.settings.tagSort),
       getTagCounts(),
       getTagGroups(),
     ]);
@@ -785,7 +790,7 @@ watch(
 );
 watch(
   () => [
-    config.settings.categorySort,
+    config.settings.tagSort,
     libConfig._libraryId,
   ],
   () => {
