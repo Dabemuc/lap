@@ -128,7 +128,10 @@
           <div v-if="displaySkippedCount > 0" class="h-6 flex items-center text-[12px] text-base-content/70">
             {{ $t('album.edit.files_count', { count: displaySkippedCount.toLocaleString(), size: formatFileSize(displaySkippedSize) }) }}
           </div>
-          <div v-if="!isScanning && mergedFileCount > 0" class="h-6 flex items-center text-[11px] text-base-content/30">{{ $t('album.edit.merged_files') }}</div>
+          <div v-if="!isScanning && mergedFileCount > 0" class="min-h-6 flex items-center gap-0.5 text-[11px] leading-4 text-base-content/30">
+            <span>{{ $t('album.edit.merged_files') }}</span>
+            <InfoTooltip v-if="activeTab === 'general'" :label="$t('album.edit.merged_files')" :text="$t('album.edit.merged_files_hint')" />
+          </div>
           <div v-if="!isScanning && mergedFileCount > 0" class="h-6 flex items-center text-[12px] text-base-content/70">
             {{ formatFileCount(mergedFileCount, mergedFileSize) }}
           </div>
@@ -286,6 +289,7 @@ import { getAlbumScanState } from '@/common/scanStatus';
 
 import ModalDialog from '@/components/ModalDialog.vue';
 import TButton from '@/components/TButton.vue';
+import InfoTooltip from '@/components/InfoTooltip.vue';
 import { IconEdit, IconNewFolder, IconFolder, IconSearch, IconClose } from '@/common/icons';
 
 const props = defineProps({
