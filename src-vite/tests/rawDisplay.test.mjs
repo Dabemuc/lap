@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import ts from 'typescript';
+import { computed, ref } from 'vue';
 
 const source = fs.readFileSync(new URL('../src/common/rawDisplay.ts', import.meta.url), 'utf8');
 const js = ts.transpile(source.replace(/^import .*;$/gm, '').replace(/export /g, ''), { target: ts.ScriptTarget.ES2022 });
@@ -46,6 +47,40 @@ test('direct cycle skips unavailable embedded preview and returns from paired JP
 });
 
 const imageSource = fs.readFileSync(new URL('../src/components/Image.vue', import.meta.url), 'utf8');
+const selectionSource = ts.transpile(imageSource.slice(imageSource.indexOf('const nextRawMode ='), imageSource.indexOf('let rawAbortController')), { target: ts.ScriptTarget.ES2022 });
+
+test('JPEG round trips restore the selected RAW mode before cycling again', () => {
+  const defaults = { mode: 'embedded', autoBright: false, preferPair: true };
+  const rawOverride = ref(null);
+  const rawSource = ref('pair');
+  const rawRequestPending = ref(false);
+  const requestedRawOptions = computed(() => rawOverride.value || defaults);
+  const { switchRaw, selectRawPair } = new Function('computed', 'rawOverride', 'rawSource', 'rawRequestPending', 'rawSelectionVersion', 'rawEmbeddedUnavailable', 'requestedRawOptions', 'nextRawPreviewMode', 'getRawDisplayOptions', 't', selectionSource + '; return { switchRaw, selectRawPair };')(
+    computed, rawOverride, rawSource, rawRequestPending, ref(0), ref(false), requestedRawOptions, nextRawPreviewMode, () => defaults, () => '',
+  );
+  const finish = source => { rawSource.value = source; rawRequestPending.value = false; };
+  switchRaw();
+  assert.equal(rawOverride.value.mode, 'embedded');
+  finish('embedded');
+  for (const mode of ['rendered', 'brightened', 'embedded']) {
+    switchRaw();
+    finish(mode);
+    selectRawPair();
+    // Returning before or after the JPEG response must preserve the RAW mode.
+    switchRaw();
+    assert.equal(rawOverride.value.mode, mode === 'embedded' ? 'embedded' : 'rendered');
+    assert.equal(rawOverride.value.autoBright, mode === 'brightened');
+    finish(mode);
+    selectRawPair();
+    finish('pair');
+    switchRaw();
+    assert.equal(rawOverride.value.mode, mode === 'embedded' ? 'embedded' : 'rendered');
+    assert.equal(rawOverride.value.autoBright, mode === 'brightened');
+    assert.equal(rawOverride.value.preferPair, false);
+    finish(mode);
+  }
+});
+
 const loaderSource = ts.transpile(imageSource.slice(imageSource.indexOf('async function loadRawImage'), imageSource.indexOf('let resizeObserver')), { target: ts.ScriptTarget.ES2022 });
 
 test('a superseded RAW response cannot replace the latest source or leak a blob URL', async () => {

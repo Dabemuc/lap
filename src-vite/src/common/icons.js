@@ -91,6 +91,7 @@ export { default as IconWinRestore } from '@/assets/icons/window-restore.svg';
 // ======================
 export { default as IconAdd } from '@/assets/icons/plus.svg';
 export { default as IconArrowUpDown } from '@/assets/icons/arrow-up-down.svg';
+export { default as IconBrightness } from '@/assets/icons/brightness.svg';
 export { default as IconCalendarDay } from '@/assets/icons/calendar-day.svg';
 export { default as IconCalendarDown } from '@/assets/icons/calendar-down.svg';
 export { default as IconCalendarMonth } from '@/assets/icons/calendar-month.svg';

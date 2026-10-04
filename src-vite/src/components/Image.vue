@@ -26,16 +26,18 @@
     </transition>
 
     <div v-if="Number(fileType) === 3" class="absolute left-4 bottom-4 z-60 flex items-center gap-2" @dblclick.stop @mousedown.stop>
-      <button class="inline-flex h-10 items-center gap-1.5 rounded-box bg-base-100/70 px-3 text-sm font-medium shadow hover:bg-base-100 hover:text-base-content cursor-pointer"
-        :class="effectiveRawSource !== 'pair' ? 'text-base-content' : 'text-base-content/50'" :title="rawSwitchTitle" @click.stop="switchRaw">
+      <button 
+        class="inline-flex h-10 items-center gap-1 rounded-box px-3 bg-base-100/70 hover:bg-base-100 text-sm font-medium shadow transition-colors cursor-pointer"
+        :class="effectiveRawSource !== 'pair' ? 'text-primary hover:text-primary' : 'text-base-content/70 hover:text-base-content'" :aria-pressed="effectiveRawSource !== 'pair'" :title="rawSwitchTitle" @click.stop="switchRaw">
         <span>RAW<span v-if="rawSourceLabel"> · {{ rawSourceLabel }}</span></span>
         <span class="inline-flex size-4 shrink-0 items-center justify-center" aria-hidden="true">
           <span v-if="rawLoadingVisible" class="loading loading-spinner loading-xs text-primary/70"></span>
-          <IconRepeat v-else class="size-3.5 opacity-70" />
+          <IconBrightness v-else class="w-5 h-5" />
         </span>
       </button>
-      <button v-if="rawPairLabel && config.settings.groupRawJpegPairs" class="inline-flex h-10 items-center rounded-box bg-base-100/70 px-3 text-sm font-medium shadow hover:bg-base-100 hover:text-base-content cursor-pointer"
-        :class="effectiveRawSource === 'pair' ? 'text-base-content' : 'text-base-content/50'" :title="t('settings.raw.show_pair', { format: rawPairLabel })" @click.stop="selectRawPair">{{ rawPairLabel }}</button>
+      <button v-if="rawPairLabel && config.settings.groupRawJpegPairs" 
+        class="inline-flex h-10 items-center rounded-box px-3 bg-base-100/70 hover:bg-base-100 text-sm font-medium shadow transition-colors cursor-pointer"
+        :class="effectiveRawSource === 'pair' ? 'text-primary hover:text-primary' : 'text-base-content/70 hover:text-base-content'" :aria-pressed="effectiveRawSource === 'pair'" :title="t('settings.raw.show_pair', { format: rawPairLabel })" @click.stop="selectRawPair">{{ rawPairLabel }}</button>
     </div>
 
     <!-- Error overlay -->
@@ -208,7 +210,7 @@ import { rawDisplayKey, getRawDisplayOptions, appendRawDisplayParams, nextRawPre
 import { useI18n } from 'vue-i18n';
 import { useToast } from '@/common/toast';
 
-import { IconError, IconRepeat } from '@/common/icons';
+import { IconError, IconBrightness } from '@/common/icons';
 
 const { t } = useI18n();
 const toast = useToast();
@@ -458,7 +460,7 @@ const nextRawMode = computed(() => {
   const current = rawRequestPending.value && rawOverride.value
     ? requested.preferPair ? 'pair' : requested.mode === 'embedded' && !rawEmbeddedUnavailable.value ? 'embedded' : requested.autoBright ? 'brightened' : 'rendered'
     : rawSource.value;
-  return nextRawPreviewMode(current, rawEmbeddedUnavailable.value, getRawDisplayOptions());
+  return nextRawPreviewMode(current, rawEmbeddedUnavailable.value, requested);
 });
 const rawSwitchTitle = computed(() => t('settings.raw.switch_to', { source: t(`settings.raw.source_${nextRawMode.value}`) }));
 function switchRaw() {
