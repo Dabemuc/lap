@@ -597,7 +597,7 @@ const getGridLabelText = (file: any, option: number) => {
     case 1: return shortenFilename(file.name) || ' ';
     case 2: return formatFileSize(file.size) || ' ';
     case 3: return formatDimensionText(file.width, file.height) || ' ';
-    case 4: return formatTimestamp(file.taken_date, localeMsg.value.format.date_time) || ' ';
+    case 4: return formatTimestamp(file.taken_date, 'date_time') || ' ';
     case 5: return file.geo_name || ' ';
     case 6: return formatCameraInfo(file.e_make, file.e_model) || ' ';
     case 7: return file.e_lens_model || ' ';

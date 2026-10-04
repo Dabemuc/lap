@@ -1,7 +1,7 @@
 import { invoke } from '@tauri-apps/api/core';
 import { listen } from '@tauri-apps/api/event';
 import { config } from '@/common/config';
-import { separator, localeComp } from '@/common/utils';
+import { separator, localeComp, formatTimestamp } from '@/common/utils';
 import { getRawDisplayOptions } from './rawDisplay';
 
 // library
@@ -1765,9 +1765,8 @@ export async function getPackageInfo() {
 export async function getBuildTime() {
   try {
     const unixTime = await invoke('get_build_time');
-    console.log('get_build_time', unixTime);
     if (unixTime) {
-      return new Date(unixTime * 1000).toLocaleString();;
+      return formatTimestamp(unixTime, 'date_time');
     }
   } catch (error) {
     console.error('Failed to get build time:', error);

@@ -37,7 +37,7 @@
                 :class="['p-1 w-6 h-6 shrink-0 transition-transform', isYearExpanded(item.year) ? 'rotate-90' : '']"
                 @click.stop="toggleYear(item.year)"
               />
-              <span class="sidebar-item-label">{{ formatDate(item.year, 1, 1, localeMsg.format.year) }}</span>
+              <span class="sidebar-item-label">{{ formatDate(item.year, 1, 1, 'year') }}</span>
               <span class="sidebar-item-count">{{ item.count.toLocaleString() }}</span>
             </div>
             <ul v-if="isYearExpanded(item.year)">

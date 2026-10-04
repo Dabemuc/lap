@@ -1174,14 +1174,6 @@
     "photos_in_view_limited": "처음 {count}장 표시 중 - 더 보려면 확대하세요"
   },
   "format": {
-    "year": "yyyy년",
-    "month": "yyyy년 M월",
-    "date": "yyyy/MM/dd",
-    "date_long": "yyyy년 M월 d일",
-    "month_date": "M월 d일",
-    "date_long_with_weekday": "yyyy년 M월 d일 EEEE",
-    "date_time": "yyyy/MM/dd HH:mm:ss",
-    "date_time_long": "yyyy년 M월 d일 HH:mm:ss",
     "relative_time": {
       "just_now": "방금",
       "seconds": "{count}초 전",
@@ -1241,7 +1233,7 @@
   "settings": {
     "general": {
       "title": "일반",
-      "section_language": "언어",
+      "section_language": "언어 및 지역",
       "section_appearance": "외관",
       "section_interface": "표시",
       "appearance": "색상 모드",
@@ -1290,6 +1282,11 @@
         "심해"
       ],
       "select_language": "언어",
+      "date_time_format": "날짜 및 시간 형식",
+      "date_time_format_options": [
+        "시스템 설정 따름",
+        "앱 언어 따름"
+      ],
       "font_size": "글꼴 크기",
       "font_size_options": [
         "더 작게",

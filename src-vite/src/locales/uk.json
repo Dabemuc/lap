@@ -1174,14 +1174,6 @@
     "photos_in_view_limited": "Показано перші {count} фотографій — збільшіть масштаб, щоб побачити більше"
   },
   "format": {
-    "year": "yyyy",
-    "month": "MMMM yyyy",
-    "date": "dd.MM.yyyy",
-    "date_long": "d MMMM yyyy",
-    "month_date": "d MMMM",
-    "date_long_with_weekday": "eeee, d MMMM yyyy",
-    "date_time": "dd.MM.yyyy HH:mm:ss",
-    "date_time_long": "d MMMM yyyy HH:mm:ss",
     "relative_time": {
       "just_now": "щойно",
       "seconds": "{count} секунд тому",
@@ -1241,7 +1233,7 @@
   "settings": {
     "general": {
       "title": "Загальні",
-      "section_language": "Мова",
+      "section_language": "Мова та регіон",
       "section_appearance": "Вигляд",
       "section_interface": "Інтерфейс",
       "appearance": "Колірний режим",
@@ -1290,6 +1282,11 @@
         "Abyss"
       ],
       "select_language": "Виберіть мову",
+      "date_time_format": "Формат дати та часу",
+      "date_time_format_options": [
+        "Як у системі",
+        "Як у мові застосунку"
+      ],
       "font_size": "Розмір шрифту",
       "font_size_options": [
         "Найменший",

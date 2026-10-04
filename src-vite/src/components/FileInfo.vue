@@ -222,17 +222,17 @@
               <div class="grid grid-cols-[84px_1fr] gap-y-1.5 gap-x-4">
                 <!-- Created At -->
                 <div class="flex items-center text-[11px] text-base-content/45 h-6">{{ $t('file_info.created_at') }}</div>
-                <div class="flex items-center text-[12px] text-base-content/75">{{ formatTimestamp(generalFileInfo?.created_at, $t('format.date_time')) }}</div>
+                <div class="flex items-center text-[12px] text-base-content/75">{{ formatTimestamp(generalFileInfo?.created_at, 'date_time') }}</div>
 
                 <!-- Modified At -->
                 <div class="flex items-center text-[11px] text-base-content/45 h-6">{{ $t('file_info.modified_at') }}</div>
-                <div class="flex items-center text-[12px] text-base-content/75">{{ formatTimestamp(generalFileInfo?.modified_at, $t('format.date_time')) }}</div>
+                <div class="flex items-center text-[12px] text-base-content/75">{{ formatTimestamp(generalFileInfo?.modified_at, 'date_time') }}</div>
 
                 <!-- Last Scan -->
                 <template v-if="generalFileInfo?.last_scan_time && generalFileInfo.last_scan_time > 0">
                   <div class="flex items-center text-[11px] text-base-content/45 h-6">{{ $t('file_info.last_scan_time') }}</div>
                   <div class="flex min-h-6 items-center gap-2">
-                    <!-- <span class="text-[12px] text-base-content/75">{{ formatTimestamp(fileInfo.last_scan_time / 1000, $t('format.date_time')) }}</span> -->
+                    <!-- <span class="text-[12px] text-base-content/75">{{ formatTimestamp(fileInfo.last_scan_time / 1000, 'date_time') }}</span> -->
                     <span class="text-[11px] text-base-content/40">{{ formatRelativeTime(generalFileInfo.last_scan_time / 1000, $t) }}</span>
                   </div>
                 </template>

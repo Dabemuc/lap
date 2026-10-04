@@ -299,8 +299,8 @@ const multiSelectDateRange = computed(() => {
     .filter(Boolean)
     .sort();
   if (dates.length === 0) return '';
-  const first = formatTimestamp(dates[0], localeMsg.value.format.date);
-  const last = formatTimestamp(dates[dates.length - 1], localeMsg.value.format.date);
+  const first = formatTimestamp(dates[0], 'date');
+  const last = formatTimestamp(dates[dates.length - 1], 'date');
   return first === last ? first : `${first} - ${last}`;
 });
 

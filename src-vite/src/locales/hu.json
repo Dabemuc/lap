@@ -1174,14 +1174,6 @@
     "photos_in_view_limited": "Az első {count} fotó megjelenítése – a továbbiakért nagyítson"
   },
   "format": {
-    "year": "yyyy",
-    "month": "yyyy. MMMM",
-    "date": "yyyy. MM. dd.",
-    "date_long": "yyyy. MMMM do",
-    "month_date": "MMMM do",
-    "date_long_with_weekday": "yyyy. MMMM do, eeee",
-    "date_time": "yyyy. MM. dd. HH:mm:ss",
-    "date_time_long": "yyyy. MMMM do HH:mm:ss",
     "relative_time": {
       "just_now": "éppen most",
       "seconds": "{count} másodperce",
@@ -1241,7 +1233,7 @@
   "settings": {
     "general": {
       "title": "Általános",
-      "section_language": "Nyelv",
+      "section_language": "Nyelv és régió",
       "section_appearance": "Megjelenés",
       "section_interface": "Felület",
       "appearance": "Színmód",
@@ -1290,6 +1282,11 @@
         "Abyss"
       ],
       "select_language": "Nyelv kiválasztása",
+      "date_time_format": "Dátum- és időformátum",
+      "date_time_format_options": [
+        "Rendszer követése",
+        "Alkalmazás nyelvének követése"
+      ],
       "font_size": "Betűméret",
       "font_size_options": [
         "Kisebb",

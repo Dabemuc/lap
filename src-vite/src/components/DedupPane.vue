@@ -198,7 +198,7 @@
                       · {{ formatFileSize(Number(item.file?.size || 0)) }}
                     </div>
                     <div v-if="item.file?.modified_at" class="text-[11px] text-base-content/30">
-                      {{ $t('file_info.modified_at') }}: {{ formatTimestamp(item.file.modified_at, $t('format.date_time')) }}
+                      {{ $t('file_info.modified_at') }}: {{ formatTimestamp(item.file.modified_at, 'date_time') }}
                     </div>
                   </div>
                   <div class="shrink-0 w-16 min-h-10 flex flex-col items-center justify-center gap-0.5">
@@ -427,7 +427,7 @@
                     {{ formatDedupFolderPath(item.file) }}
                   </div>
                   <div v-if="item.file?.modified_at" class="text-[11px] text-base-content/30">
-                    {{ $t('file_info.modified_at') }}: {{ formatTimestamp(item.file.modified_at, $t('format.date_time')) }}
+                    {{ $t('file_info.modified_at') }}: {{ formatTimestamp(item.file.modified_at, 'date_time') }}
                   </div>
                 </div>
                 <div class="shrink-0 w-16 min-h-10 flex items-center justify-center">

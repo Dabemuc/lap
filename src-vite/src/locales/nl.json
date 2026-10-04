@@ -1174,14 +1174,6 @@
     "photos_in_view_limited": "Eerste {count} foto's getoond - zoom in voor meer"
   },
   "format": {
-    "year": "yyyy",
-    "month": "MMMM yyyy",
-    "date": "dd-MM-yyyy",
-    "date_long": "d MMMM yyyy",
-    "month_date": "d MMMM",
-    "date_long_with_weekday": "EEEE d MMMM yyyy",
-    "date_time": "dd-MM-yyyy HH:mm:ss",
-    "date_time_long": "d MMMM yyyy HH:mm:ss",
     "relative_time": {
       "just_now": "zojuist",
       "seconds": "{count} seconden geleden",
@@ -1241,7 +1233,7 @@
   "settings": {
     "general": {
       "title": "Algemeen",
-      "section_language": "Taal",
+      "section_language": "Taal en regio",
       "section_appearance": "Weergave",
       "section_interface": "Interface",
       "appearance": "Kleurmodus",
@@ -1290,6 +1282,11 @@
         "Abyss"
       ],
       "select_language": "Kies taal",
+      "date_time_format": "Datum- en tijdnotatie",
+      "date_time_format_options": [
+        "Volg systeem",
+        "Volg app-taal"
+      ],
       "font_size": "Lettergrootte",
       "font_size_options": [
         "Kleiner",

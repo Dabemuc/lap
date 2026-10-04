@@ -101,6 +101,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { IconScrollUp, IconScrollDown } from '@/common/icons';
+import { formatDate } from '@/common/utils';
 
 const props = defineProps({
   total: {
@@ -435,7 +436,7 @@ function handleMarkersMouseMove(e: MouseEvent) {
   // Find closest marker
   const marker = findMarkerForIndex(targetIndex);
   if (marker) {
-    hoverDate.value = formatDate(marker);
+    hoverDate.value = formatMarkerDate(marker);
   }
 }
 
@@ -473,19 +474,18 @@ function findMarkerForIndex(index: number) {
   return res;
 }
 
-function formatDate(marker: { year?: number | null, month?: number | null, date?: number | null, label?: string }) {
+// Localize the hover marker by its precision: year / month / full date.
+function formatMarkerDate(marker: { year?: number | null, month?: number | null, date?: number | null, label?: string }) {
   if (marker.label) return marker.label;
 
   const y = marker.year;
   const m = marker.month;
   const d = marker.date;
-  
+
   if (!y) return '';
-  
-  let str = `${y}`;
-  if (m !== null) str += `-${String(m).padStart(2, '0')}`;
-  if (d !== null) str += `-${String(d).padStart(2, '0')}`;
-  return str;
+  if (m == null) return formatDate(y, 1, 1, 'year');
+  if (d == null) return formatDate(y, m, 1, 'month');
+  return formatDate(y, m, d, 'date');
 }
 
 function emitUpdate(newValue: number) {

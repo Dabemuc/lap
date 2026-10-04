@@ -1174,14 +1174,6 @@
     "photos_in_view_limited": "Zeige die ersten {count} Fotos - zum Eingrenzen weiter zoomen"
   },
   "format": {
-    "year": "yyyy",
-    "month": "MMMM yyyy",
-    "date": "dd.MM.yyyy",
-    "date_long": "d. MMMM yyyy",
-    "month_date": "d. MMMM",
-    "date_long_with_weekday": "EEEE, d. MMMM yyyy",
-    "date_time": "dd.MM.yyyy HH:mm:ss",
-    "date_time_long": "d. MMMM yyyy HH:mm:ss",
     "relative_time": {
       "just_now": "gerade eben",
       "seconds": "vor {count} Sekunden",
@@ -1241,7 +1233,7 @@
   "settings": {
     "general": {
       "title": "Allgemein",
-      "section_language": "Sprache",
+      "section_language": "Sprache & Region",
       "section_appearance": "Erscheinungsbild",
       "section_interface": "Anzeige",
       "appearance": "Erscheinungsbild",
@@ -1290,6 +1282,11 @@
         "Abyss"
       ],
       "select_language": "Sprache",
+      "date_time_format": "Datums- & Zeitformat",
+      "date_time_format_options": [
+        "System folgen",
+        "Appsprache folgen"
+      ],
       "font_size": "Schriftgröße",
       "font_size_options": [
         "Kleiner",

@@ -1174,14 +1174,6 @@
     "photos_in_view_limited": "Prime {count} foto mostrate - ingrandisci per vederne altre"
   },
   "format": {
-    "year": "yyyy",
-    "month": "MMMM yyyy",
-    "date": "dd/MM/yyyy",
-    "date_long": "do MMMM yyyy",
-    "month_date": "do MMMM",
-    "date_long_with_weekday": "eeee do MMMM yyyy",
-    "date_time": "dd/MM/yyyy HH:mm:ss",
-    "date_time_long": "do MMMM yyyy HH:mm:ss",
     "relative_time": {
       "just_now": "proprio ora",
       "seconds": "{count} secondi fa",
@@ -1241,7 +1233,7 @@
   "settings": {
     "general": {
       "title": "Generali",
-      "section_language": "Lingua",
+      "section_language": "Lingua e zona",
       "section_appearance": "Aspetto",
       "section_interface": "Interfaccia",
       "appearance": "Modalità colore",
@@ -1290,6 +1282,11 @@
         "Abyss"
       ],
       "select_language": "Seleziona lingua",
+      "date_time_format": "Formato data e ora",
+      "date_time_format_options": [
+        "Segui il sistema",
+        "Segui la lingua dell'app"
+      ],
       "font_size": "Dimensione del testo",
       "font_size_options": [
         "Più piccolo",

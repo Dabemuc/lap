@@ -1528,15 +1528,15 @@ function formatDateGroupLabel(groupBy: number, label: string) {
 
   switch (groupBy) {
     case GROUP.DAY:
-      return formatDate(year, month, date, localeMsg.value.format.date_long);
+      return formatDate(year, month, date, 'date_long');
     case GROUP.MONTH:
-      return formatDate(year, month, 1, localeMsg.value.format.month);
+      return formatDate(year, month, 1, 'month');
     case GROUP.YEAR: {
       if (config.main.sidebarIndex === SIDEBAR.LIBRARY && libConfig.library.item === LIB_ITEM.TODAY) {
         const today = new Date();
-        return formatDate(year, today.getMonth() + 1, today.getDate(), localeMsg.value.format.date_long);
+        return formatDate(year, today.getMonth() + 1, today.getDate(), 'date_long');
       }
-      return formatDate(year, 1, 1, localeMsg.value.format.year);
+      return formatDate(year, 1, 1, 'year');
     }
     default:
       return rawLabel;
@@ -7645,11 +7645,11 @@ async function updateContent(force = false, preserveMultiSelection = selectMode.
       showEmptyContent(requestId);
     } else {
       if (libConfig.calendar.month === -1) {          // yearly
-        contentTitle.value = formatDate(libConfig.calendar.year!, 1, 1, localeMsg.value.format.year);
+        contentTitle.value = formatDate(libConfig.calendar.year!, 1, 1, 'year');
       } else if (libConfig.calendar.date === -1) {    // monthly
-        contentTitle.value = formatDate(libConfig.calendar.year!, libConfig.calendar.month!, 1, localeMsg.value.format.month);
+        contentTitle.value = formatDate(libConfig.calendar.year!, libConfig.calendar.month!, 1, 'month');
       } else {                                    // daily
-        contentTitle.value = formatDate(libConfig.calendar.year!, libConfig.calendar.month!, libConfig.calendar.date!, localeMsg.value.format.date_long);
+        contentTitle.value = formatDate(libConfig.calendar.year!, libConfig.calendar.month!, libConfig.calendar.date!, 'date_long');
       }
       const [startDate, endDate] = getCalendarDateRange(libConfig.calendar.year!, libConfig.calendar.month!, libConfig.calendar.date!);
       getFileList({ startDate, endDate }, requestId);

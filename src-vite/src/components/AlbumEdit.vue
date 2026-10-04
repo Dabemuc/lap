@@ -311,9 +311,9 @@ const { t } = useI18n();
 const toast = useToast();
 const isNewAlbum = computed(() => props.albumId <= 0);
 const album = ref<any>(null);
-const createdAt = computed(() => formatTimestamp(Number(album.value?.created_at || 0), t('format.date_time')));
-const modifiedAt = computed(() => formatTimestamp(Number(album.value?.modified_at || 0), t('format.date_time')));
-const lastScanTime = computed(() => formatTimestamp(Number(album.value?.last_scan_time || 0) / 1000, t('format.date_time')));
+const createdAt = computed(() => formatTimestamp(Number(album.value?.created_at || 0), 'date_time'));
+const modifiedAt = computed(() => formatTimestamp(Number(album.value?.modified_at || 0), 'date_time'));
+const lastScanTime = computed(() => formatTimestamp(Number(album.value?.last_scan_time || 0) / 1000, 'date_time'));
 
 // select folder
 const selectedFolder = ref('');

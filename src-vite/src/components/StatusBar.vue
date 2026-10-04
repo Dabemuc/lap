@@ -23,7 +23,7 @@
 
         <div class="flex items-center gap-1 shink-0">
           <IconCalendarDay class="t-icon-size-xs" />
-          <span>{{ formatTimestamp(currentFile?.taken_date, $t('format.date_time')) }}</span>
+          <span>{{ formatTimestamp(currentFile?.taken_date, 'date_time') }}</span>
         </div>
         
         <div v-if="showFilmStrip || showQuickView || showScale" class="flex items-center gap-1 shink-0">

@@ -5,6 +5,7 @@ import piniaPersistedState from 'pinia-plugin-persistedstate'
 import { emit, listen } from '@tauri-apps/api/event'
 import { invoke } from '@tauri-apps/api/core'
 import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
+import { locale as getOsLocale } from '@tauri-apps/plugin-os'
 import 'cally'
 import router from '@/common/router'
 import App from '@/App.vue'
@@ -39,6 +40,9 @@ const config = useConfigStore() // Use the config store
 const currentWindowLabel = getCurrentWebviewWindow().label
 const isMainWindow = currentWindowLabel === 'main'
 const isSettingsWindow = currentWindowLabel === 'settings'
+
+// Fetch the OS locale once so "follow system" date/time formatting has a value.
+void getOsLocale().then((loc) => config.setSystemLocale(loc)).catch(() => {})
 
 if (isMainWindow) {
   config.$subscribe((_mutation, state) => {
@@ -126,6 +130,9 @@ if (isMainWindow) {
   })
   listen('settings-folderSort-changed', (event) => {
     config.setFolderSort(event.payload)
+  })
+  listen('settings-dateTimeFormat-changed', (event) => {
+    config.setDateTimeFormat(event.payload)
   })
   listen('settings-showSubfolderFiles-changed', (event) => {
     config.setShowSubfolderFiles(event.payload)

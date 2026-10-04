@@ -1,7 +1,7 @@
-import { format } from 'date-fns';
 import { open as openDialog } from '@tauri-apps/plugin-dialog';
 import { convertFileSrc } from '@tauri-apps/api/core';
 import { useUIStore } from '@/stores/uiStore';
+import { config } from '@/common/config';
 import { appendRawDisplayParams, rawDisplayKey } from './rawDisplay';
 
 /// get the current operating system (mac, win, linux, or '')
@@ -100,14 +100,56 @@ export function getDaysElapsed(timestamp: number): number {
   return Math.floor(diff / (60 * 60 * 24));
 }
 
-/// format timestamp to string
-export function formatTimestamp(timestamp: number, formatStr: string): string {
-  if (!timestamp || isNaN(timestamp)) return '';
+/// Date/time formatting via Intl.DateTimeFormat (ICU/CLDR), which produces the
+/// correct regional format on macOS, Windows, and Linux without per-locale
+/// pattern strings. The locale source is chosen by config.settings.dateTimeFormat:
+/// 0 = follow the system region, 1 = follow the app language.
+export type DateTimeStyle =
+  | 'year' | 'month' | 'date' | 'date_long' | 'month_date'
+  | 'date_long_with_weekday' | 'date_time' | 'date_time_long';
+
+const DATE_TIME_STYLE_OPTIONS: Record<DateTimeStyle, Intl.DateTimeFormatOptions> = {
+  year: { year: 'numeric' },
+  month: { month: 'long', year: 'numeric' },
+  date: { dateStyle: 'short' },
+  date_long: { dateStyle: 'long' },
+  month_date: { month: 'long', day: 'numeric' },
+  date_long_with_weekday: { dateStyle: 'full' },
+  date_time: { dateStyle: 'short', timeStyle: 'medium' },
+  date_time_long: { dateStyle: 'long', timeStyle: 'medium' },
+};
+
+// Intl.DateTimeFormat construction is relatively expensive and dates render a
+// lot (grids, lists), so cache one formatter per (locale, style).
+const dateTimeFormatters = new Map<string, Intl.DateTimeFormat>();
+
+function resolveDateTimeLocale(): string | undefined {
+  if (Number(config.settings.dateTimeFormat) === 1) {
+    return config.settings.language || undefined;
+  }
+  return config.systemLocale || navigator.language || undefined;
+}
+
+/// Format a Date with a named style, honoring the date/time-format setting.
+export function formatDateTimeWithStyle(date: Date, style: DateTimeStyle): string {
+  const locale = resolveDateTimeLocale();
+  const key = `${locale || 'auto'}|${style}`;
   try {
-    return format(new Date(timestamp * 1000), formatStr);
+    let formatter = dateTimeFormatters.get(key);
+    if (!formatter) {
+      formatter = new Intl.DateTimeFormat(locale, DATE_TIME_STYLE_OPTIONS[style] || DATE_TIME_STYLE_OPTIONS.date);
+      dateTimeFormatters.set(key, formatter);
+    }
+    return formatter.format(date);
   } catch (e) {
     return '';
   }
+}
+
+/// format timestamp (unix seconds) to string using a named DateTimeStyle
+export function formatTimestamp(timestamp: number, style: DateTimeStyle): string {
+  if (!timestamp || isNaN(timestamp)) return '';
+  return formatDateTimeWithStyle(new Date(timestamp * 1000), style);
 }
 
 /// format relative time string using i18n keys
@@ -148,13 +190,9 @@ export function formatRelativeTime(timestamp: number, t: (key: string, data?: an
   return t('format.relative_time.years', { count: years });
 }
 
-/// format date to string
-export function formatDate(year: number, month: number, date: number, formatStr: string): string {
-  try {
-    return format(new Date(year, month - 1, date), formatStr);
-  } catch (e) {
-    return '';
-  }
+/// format date (y, 1-based month, d) to string using a named DateTimeStyle
+export function formatDate(year: number, month: number, date: number, style: DateTimeStyle): string {
+  return formatDateTimeWithStyle(new Date(year, month - 1, date), style);
 }
 
 /// get the date range of a month

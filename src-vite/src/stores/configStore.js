@@ -100,11 +100,16 @@ export const useConfigStore = defineStore('configStore', {
 
     libraryChangedVersion: 0,
 
+    // System locale (BCP-47, e.g. "en-GB"), fetched once at startup via plugin-os.
+    // Used when dateTimeFormat follows the system region.
+    systemLocale: '',
+
     settings: {
-      tabIndex: 0,               // settings tab index (0: general, 1: browse, 2: grid, 3: viewer, 4: RAW, 5: search, 6: advanced, 7: shortcuts, 8: about)
+      tabIndex: 0,               // settings tab index (0: general, 2: grid, 3: viewer, 4: RAW, 5: search, 6: advanced, 7: shortcuts, 8: about; 1 reserved)
 
       // general settings
       language: 'en',             // default language
+      dateTimeFormat: 0,          // date/time locale source (0: follow system region, 1: follow app language)
       appearance: 1,              // appearance (0: light; 1: dark)
       lightTheme: 0,              // light theme color index
       darkTheme: 0,               // dark theme color index
@@ -251,6 +256,12 @@ export const useConfigStore = defineStore('configStore', {
     },
     setLanguage(language) {
       this.settings.language = language;
+    },
+    setDateTimeFormat(dateTimeFormat) {
+      this.settings.dateTimeFormat = dateTimeFormat;
+    },
+    setSystemLocale(systemLocale) {
+      this.systemLocale = systemLocale || '';
     },
     setShowToolTip(showToolTip) {
       this.settings.showToolTip = showToolTip;

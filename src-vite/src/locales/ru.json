@@ -1174,14 +1174,6 @@
     "photos_in_view_limited": "Показаны первые {count} фото - увеличьте масштаб для уточнения"
   },
   "format": {
-    "year": "yyyy",
-    "month": "MMMM yyyy",
-    "date": "dd.MM.yyyy",
-    "date_long": "d MMMM yyyy",
-    "month_date": "d MMMM",
-    "date_long_with_weekday": "EEEE, d MMMM yyyy",
-    "date_time": "dd.MM.yyyy HH:mm:ss",
-    "date_time_long": "d MMMM yyyy HH:mm:ss",
     "relative_time": {
       "just_now": "только что",
       "seconds": "{count} сек назад",
@@ -1241,7 +1233,7 @@
   "settings": {
     "general": {
       "title": "Общее",
-      "section_language": "Язык",
+      "section_language": "Язык и регион",
       "section_appearance": "Внешний вид",
       "section_interface": "Интерфейс",
       "appearance": "Цветовой режим",
@@ -1290,6 +1282,11 @@
         "Сине-зелёная"
       ],
       "select_language": "Язык",
+      "date_time_format": "Формат даты и времени",
+      "date_time_format_options": [
+        "Как в системе",
+        "Как в языке приложения"
+      ],
       "font_size": "Размер шрифта",
       "font_size_options": [
         "Минимальный",

@@ -41,6 +41,14 @@
                 <option v-for="(lang, index) in languages" :key="index" :value="lang.value">{{ lang.label }}</option>
               </select>
             </div>
+            <div class="flex items-center justify-between px-1 rounded-box hover:bg-base-100/10 transition-colors duration-200">
+              <div class="flex flex-col gap-0.5 text-sm leading-5">
+                <div>{{ $t('settings.general.date_time_format') }}</div>
+              </div>
+              <select class="select select-bordered select-sm min-w-40" v-model="config.settings.dateTimeFormat">
+                <option v-for="option in dateTimeFormatOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
+              </select>
+            </div>
           </div>
 
           <!-- appearance -->
@@ -800,6 +808,11 @@ const folderSortOptions = computed(() => {
   return result;
 });
 
+const dateTimeFormatOptions = computed(() => {
+  const options = localeMsg.value.settings.general.date_time_format_options || [];
+  return options.map((label: string, value: number) => ({ label, value }));
+});
+
 // Define the wheel options using computed to react to language changes
 const wheelOptions = computed(() => {
   const options = localeMsg.value.settings.image_view.mouse_wheel_options; // returns an array
@@ -1414,6 +1427,9 @@ watch(() => config.settings.debugMode, (newValue) => {
 });
 watch(() => config.settings.folderSort, (newValue) => {
   emit('settings-folderSort-changed', newValue);
+});
+watch(() => config.settings.dateTimeFormat, (newValue) => {
+  emit('settings-dateTimeFormat-changed', newValue);
 });
 watch(() => config.settings.showSubfolderFiles, (newValue) => {
   emit('settings-showSubfolderFiles-changed', newValue);
